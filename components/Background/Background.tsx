@@ -1,8 +1,8 @@
 // @ts-nocheck
 "use client"
-import React from "react";
+import React, { useEffect } from "react";
 import "./Background.css";
-
+import {useModeContext} from "../../context/DarkModeContext"
 import { memo, useState } from "react";
 
 const ORB_COUNT = 20;
@@ -108,11 +108,16 @@ type Props = {};
 
 const Background = (props: Props) => {
   const [hue, setHue] = useState(274);
-  // random(0, 360)
-  console.log("hue is", hue);
+  const {mode,setMode} = useModeContext()
+  
+  useEffect(() => {
+   if(mode.darkMode)
+   setHue(random(0, 360));
+  }, [mode]);
+
   return (
     <>
-    <main className="fragment max-h-screen overflow-hidden -z-10 absolute">
+    <main className={`fragment max-h-screen overflow-hidden -z-10 absolute ${mode.darkMode?"grayscale":""}`}>
       <Orbs hue={hue}/>
     </main>
     </>
