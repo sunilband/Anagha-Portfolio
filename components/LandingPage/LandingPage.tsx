@@ -24,14 +24,14 @@ const LandingPage = (props: Props) => {
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className={`fiexenFontBold text-[3em] tracking-wide ${mode.darkMode?"text-black":"text-[#606887]"} leading-none font-semibold`}
+            className={`fiexenFontBold text-[3em] tracking-wide ${mode.darkMode?"text-black":"text-[#606887]"} leading-none font-semibold `}
             
           >
             <Magnetic>ANAGHA YAWALE</Magnetic>
           </motion.span>
         </motion.h2>
         <motion.h2
-          initial={{ opacity: 0, x: -100 }}
+          initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 1 }}
           className="flex items-center gap-8 flex-wrap justify-center leading-none sm:mt-0 mt-10"
@@ -45,17 +45,25 @@ const LandingPage = (props: Props) => {
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 1.2 }}
-          className="sm:w-[50%] "
+          className="sm:w-[50%]"
         >
-          <h3>
+          <h3 >
             I’m a Flutter Developer, UX/UI designer & Professional
             Procrastinator
           </h3>
         </motion.div>
 
         <div className="flex gap-10 font-semibold">
-          <p className="hover-underline-animation"> → See my projects</p>
-          <p className="hover-underline-animation"> → More about me</p>
+          <motion.p 
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 1.2 }}
+          className="hover-underline-animation"> → See my projects</motion.p>
+          <motion.p
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 1.2 }}
+          className="hover-underline-animation"> → More about me</motion.p>
         </div>
       </div>
     </div>
