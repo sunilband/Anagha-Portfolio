@@ -77,7 +77,8 @@ const Orb = ({ hue }) => {
   );
 };
 
-const Orbs = memo(({ hue }) => {
+// const Orbs = memo(({ hue }) => {
+  const Orbs = (({ hue }) => {
   return (
     <svg
       viewBox="0 0 1000 1000"
