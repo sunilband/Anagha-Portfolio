@@ -1,25 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Train+One&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
 @font-face {
-    font-family: 'Fiexen';
-    src: url('/Feixen.ttf') format('ttf');
+    font-family:'Fiexen';
+    src: url('../public/Feixen.ttf') ;
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'FiexenBold';
-    src: url('/FeixenBold.ttf') format('ttf');
+    font-family:'FiexenBold';
+    src: url('../public/FeixenBold.ttf') ;
     font-weight: bold;
     font-style: normal;
 }
 
 .fiexenFont{
-    font-family: 'Fiexen !important';
+    font-family: 'Fiexen';
 }
 
 .fiexenFontBold{
-    font-family: 'FiexenBold !important';
+    font-family: 'FiexenBold';
+}
+
+.trainFont{
+    font-family: 'Train One';
 }

@@ -77,8 +77,8 @@ const Orb = ({ hue }) => {
   );
 };
 
-// const Orbs = memo(({ hue }) => {
-  const Orbs = (({ hue }) => {
+const Orbs = memo(({ hue }) => {
+
   return (
     <svg
       viewBox="0 0 1000 1000"
@@ -107,11 +107,16 @@ Orbs.displayName = "Orbs"; // Add display name to the component
 type Props = {};
 
 const Background = (props: Props) => {
-  const [hue, setHue] = useState(random(0, 360));
+  const [hue, setHue] = useState(274);
+  // random(0, 360)
+  console.log("hue is", hue);
   return (
+    <>
     <main className="fragment max-h-screen overflow-hidden -z-10 absolute">
       <Orbs hue={hue}/>
     </main>
+    </>
+    
   );
 };
 
