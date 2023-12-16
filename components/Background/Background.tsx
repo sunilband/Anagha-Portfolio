@@ -77,6 +77,7 @@ const Orb = ({ hue }) => {
    useEffect(() => {
      setCx(from[0]);
    }, []);
+  
   return (
     <>
       <motion.circle
@@ -141,7 +142,8 @@ Orbs.displayName = "Orbs"; // Add display name to the component
 type Props = {};
 
 const Background = (props: Props) => {
-  const [hue, setHue] = useState(73);
+  const [hue, setHue] = useState(171);
+  // 73
   const {mode,setMode} = useModeContext()
   
   useEffect(() => {
@@ -149,7 +151,7 @@ const Background = (props: Props) => {
    setHue(random(0, 360));
   }, [mode]);
 
-  
+  console.log(hue)
 
   return (
     <>

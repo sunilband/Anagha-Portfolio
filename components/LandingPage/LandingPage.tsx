@@ -27,7 +27,7 @@ const LandingPage = (props: Props) => {
             transition={{ duration: 0.5, delay: 0.5 }}
             className={`barlowFont text-[3em] tracking-wide ${
               mode.darkMode ? "text-black" : "text-black"
-            } leading-none font-semibold shadowText sm:mt-[1.2rem] mb-6 sm:mb-0 mt-[-20px]`}
+            } leading-none font-semibold shadowText sm:mt-[1.2rem] mb-6 sm:mb-0 mt-[-20px] hover-underline-name`}
             onMouseEnter={() => setRestart(true)}
             onMouseLeave={() => setRestart(false)}
           >

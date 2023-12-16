@@ -1,12 +1,8 @@
-// @ts-nocheck
 "use client"
 import React from 'react'
 import { useRef,useEffect } from 'react';
-import Header from '../Header/Header';
-import StickyCursor from '../StickyCursor/StickyCursor';
-
-
-
+import Header from '../header';
+import StickyCursor from '../stickyCursor';
 
 
 type Props = {}
@@ -15,8 +11,8 @@ const CursorWrapper = (props: Props) => {
     const stickyElement = useRef(null);
   return (
    <>
-    <Header ref={stickyElement}/>
-    <StickyCursor stickyElement={stickyElement}/>
+   <Header ref={stickyElement}/>
+   <StickyCursor stickyElement={stickyElement}/>
    </>
   )
 }
