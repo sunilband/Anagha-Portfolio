@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Magnetic from "../Magnetic/index";
+import Magnetic from "../magnetic/index";
 import { motion } from "framer-motion";
 import "./LandingPage.css";
 import { useModeContext } from "../../context/DarkModeContext";

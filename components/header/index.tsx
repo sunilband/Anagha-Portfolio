@@ -2,7 +2,7 @@
 "use client"
 import { forwardRef } from "react";
 import styles from "./style.module.scss";
-import Magnetic from "../Magnetic";
+import Magnetic from "../magnetic";
 import "./Index.css";
 import { useModeContext } from "../../context/DarkModeContext";
 
