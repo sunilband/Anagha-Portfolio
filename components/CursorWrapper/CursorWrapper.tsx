@@ -1,8 +1,8 @@
 "use client"
 import React from 'react'
 import { useRef,useEffect } from 'react';
-import Header from '../Header/index';
-import StickyCursor from '../StickyCursor/index';
+import Header from '../Header';
+import StickyCursor from '../StickyCursor';
 type Props = {}
 
 const CursorWrapper = (props: Props) => {
