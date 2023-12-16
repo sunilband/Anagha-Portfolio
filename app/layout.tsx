@@ -1,9 +1,8 @@
-'use client'
 import Background from "@/components/Background/Background";
 import "./globals.css";
 import type { Metadata } from "next";
-import CursorWrapper from "../components/CursorWrapper/CursorWrapper";
-import dynamic from "next/dynamic";
+// import CursorWrapper from "../components/CursorWrapper/CursorWrapper";
+
 
 import { ModeProvider } from "../context/DarkModeContext";
 import { AnimationProvider } from "../context/BgAnimationTrigger";
@@ -24,7 +23,7 @@ export default function RootLayout({
         <ModeProvider>
           <AnimationProvider>
             <Background />
-            <CursorWrapper />
+            {/* <CursorWrapper /> */}
             {children}
           </AnimationProvider>
         </ModeProvider>
