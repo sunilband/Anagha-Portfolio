@@ -71,7 +71,12 @@ const Orb = ({ hue }) => {
         setAnimationTriggered(false);
       }
    }, [restart]);
+   
+   const [cx, setCx] = useState(from[0]);
 
+   useEffect(() => {
+     setCx(from[0]);
+   }, []);
   return (
     <>
       <motion.circle
@@ -143,6 +148,8 @@ const Background = (props: Props) => {
    if(mode.darkMode)
    setHue(random(0, 360));
   }, [mode]);
+
+  
 
   return (
     <>
