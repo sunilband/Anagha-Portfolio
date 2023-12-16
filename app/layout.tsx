@@ -1,4 +1,3 @@
-"use client"
 import Background from "@/components/Background/Background";
 import "./globals.css";
 import type { Metadata } from "next";

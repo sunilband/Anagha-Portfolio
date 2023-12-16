@@ -1,4 +1,4 @@
-'use client';
+'use client'
 import { useEffect, useState, useRef } from 'react';
 import styles from './style.module.scss';
 import { motion, useMotionValue, useSpring, transform, animate } from 'framer-motion';
