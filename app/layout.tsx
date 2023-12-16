@@ -1,7 +1,7 @@
 import Background from "@/components/Background/Background";
 import "./globals.css";
 import type { Metadata } from "next";
-// import CursorWrapper from "../components/CursorWrapper/CursorWrapper";
+import CursorWrapper from "../components/CursorWrapper/CursorWrapper";
 
 
 import { ModeProvider } from "../context/DarkModeContext";
@@ -23,7 +23,7 @@ export default function RootLayout({
         <ModeProvider>
           <AnimationProvider>
             <Background />
-            {/* <CursorWrapper /> */}
+            <CursorWrapper />
             {children}
           </AnimationProvider>
         </ModeProvider>
