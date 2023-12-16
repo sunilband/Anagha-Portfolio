@@ -4,6 +4,8 @@ import React, { useEffect } from "react";
 import "./Background.css";
 import {useModeContext} from "../../context/DarkModeContext"
 import { memo, useState } from "react";
+import { motion } from "framer-motion";
+import { useAnimationContext } from "@/context/BgAnimationTrigger";
 
 const ORB_COUNT = 20;
 
@@ -57,9 +59,37 @@ const Orb = ({ hue }) => {
   const to = [random(0 - r, 1000 + r), random(0 - r, 1000 + r)];
   const d = distance(from, to);
   const id = random(0, 1000);
+
+  const {restart,setRestart} =useAnimationContext()
+  const [animationTriggered, setAnimationTriggered] = useState(false);
+   useEffect(() => {
+     if (restart) {
+       setAnimationTriggered(true);
+     }
+     else
+      {
+        setAnimationTriggered(false);
+      }
+   }, [restart]);
+
   return (
     <>
-      <circle
+      <motion.circle
+        initial={{ x: random(-1000, 1000), y: random(-1000, 1000) }}
+        // animate={{ x: 0, y: 0 }}
+        transition={{
+          duration: 3,
+          delay: random(0, 1),
+          ease: "easeInOut",
+          type: "spring",
+          damping: 10
+        }}
+
+        // if animationTriggered is true, then animate the orbs to center as a circle
+        // else animate the orbs to random positions
+        animate={animationTriggered?{ x: 0, y: 0 }: { x: random(-1000, 1000), y: random(-1000, 1000) }}
+        
+      
         cx={from[0]}
         cy={to[0]}
         r={r}
@@ -78,7 +108,6 @@ const Orb = ({ hue }) => {
 };
 
 const Orbs = memo(({ hue }) => {
-
   return (
     <svg
       viewBox="0 0 1000 1000"
@@ -107,7 +136,7 @@ Orbs.displayName = "Orbs"; // Add display name to the component
 type Props = {};
 
 const Background = (props: Props) => {
-  const [hue, setHue] = useState(274);
+  const [hue, setHue] = useState(73);
   const {mode,setMode} = useModeContext()
   
   useEffect(() => {

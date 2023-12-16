@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Train+One&display=swap');
+/* monstarat and borlow condensed fonts */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Montserrat&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -28,4 +30,12 @@
 
 .trainFont{
     font-family: 'Train One';
+}
+
+.montserratFont{
+    font-family: 'Montserrat';
+}
+
+.barlowFont{
+    font-family: 'Barlow Condensed';
 }
