@@ -75,7 +75,7 @@ const Orb = ({ hue }) => {
   return (
     <>
       <motion.circle
-        initial={{ x: random(-1000, 1000), y: random(-1000, 1000) }}
+        initial={{ x: random(-500, 500), y: random(-500, 500) }}
         // animate={{ x: 0, y: 0 }}
         transition={{
           duration: 3,
@@ -87,7 +87,7 @@ const Orb = ({ hue }) => {
 
         // if animationTriggered is true, then animate the orbs to center as a circle
         // else animate the orbs to random positions
-        animate={animationTriggered?{ x: 0, y: 0 }: { x: random(-1000, 1000), y: random(-1000, 1000) }}
+        animate={animationTriggered?{ x: 0, y: 0 }: { x: random(-700, 700), y: random(-700, 700) }}
         
       
         cx={from[0]}
