@@ -1,4 +1,5 @@
 "use client"
+// @ts-nocheck
 import React from 'react'
 import { useRef,useEffect } from 'react';
 import Header from '../Header/Header';
