@@ -1,7 +1,12 @@
 import Background from "@/components/Background/Background";
 import "./globals.css";
 import type { Metadata } from "next";
-import CursorWrapper from "../components/CursorWrapper/CursorWrapper";
+// import CursorWrapper from "../components/CursorWrapper/CursorWrapper";
+import dynamic from "next/dynamic";
+const CursorWrapper = dynamic(
+  () => import("../components/CursorWrapper/CursorWrapper"),
+  { ssr: false }
+);
 import { ModeProvider } from "../context/DarkModeContext";
 import { AnimationProvider } from "../context/BgAnimationTrigger";
 
