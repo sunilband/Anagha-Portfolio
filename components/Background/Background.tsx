@@ -1,8 +1,8 @@
 // @ts-nocheck
-"use client"
+"use client";
 import React, { useEffect } from "react";
 import "./Background.css";
-import {useModeContext} from "../../context/DarkModeContext"
+import { useModeContext } from "../../context/DarkModeContext";
 import { memo, useState } from "react";
 import { motion } from "framer-motion";
 import { useAnimationContext } from "@/context/BgAnimationTrigger";
@@ -29,7 +29,7 @@ const Gooey = ({ id }) => (
 
 const Blur = ({ id }) => (
   <filter id={id} x="-50%" y="-50%" width="200%" height="200%">
-    <feGaussianBlur in="SourceGraphic" stdDeviation="20" />
+    <feGaussianBlur in="SourceGraphic" stdDeviation="10" />
   </filter>
 );
 
@@ -60,42 +60,38 @@ const Orb = ({ hue }) => {
   const d = distance(from, to);
   const id = random(0, 1000);
 
-  const {restart,setRestart} =useAnimationContext()
+  const { restart, setRestart } = useAnimationContext();
   const [animationTriggered, setAnimationTriggered] = useState(false);
-   useEffect(() => {
-     if (restart) {
-       setAnimationTriggered(true);
-     }
-     else
-      {
-        setAnimationTriggered(false);
-      }
-   }, [restart]);
-   
-   const [cx, setCx] = useState(from[0]);
+  useEffect(() => {
+    if (restart) {
+      setAnimationTriggered(true);
+    } else {
+      setAnimationTriggered(false);
+    }
+  }, [restart]);
 
-   useEffect(() => {
-     setCx(from[0]);
-   }, []);
-  
+  const [cx, setCx] = useState(from[0]);
+
+  useEffect(() => {
+    setCx(from[0]);
+  }, []);
+
   return (
     <>
       <motion.circle
-        initial={{ x: random(-500, 500), y: random(-500, 500) }}
-        // animate={{ x: 0, y: 0 }}
+        initial={{ x: random(-100, 100), y: random(-100, 100) ,scale:0 }}
+        animate={
+          animationTriggered
+            ? { x: 0, y: 0 ,scale:1}
+            : { x: random(-500, 500), y: random(-500, 500),scale:1 }
+        }
         transition={{
           duration: 3,
           delay: random(0, 1),
           ease: "easeInOut",
           type: "spring",
-          damping: 10
+          damping: 7,
         }}
-
-        // if animationTriggered is true, then animate the orbs to center as a circle
-        // else animate the orbs to random positions
-        animate={animationTriggered?{ x: 0, y: 0 }: { x: random(-700, 700), y: random(-700, 700) }}
-        
-      
         cx={from[0]}
         cy={to[0]}
         r={r}
@@ -142,24 +138,26 @@ Orbs.displayName = "Orbs"; // Add display name to the component
 type Props = {};
 
 const Background = (props: Props) => {
-  const [hue, setHue] = useState(171);
+  const [hue, setHue] = useState(113);
   // 73
-  const {mode,setMode} = useModeContext()
-  
+  const { mode, setMode } = useModeContext();
+
   useEffect(() => {
-   if(mode.darkMode)
-   setHue(random(0, 360));
+    if (mode.darkMode) setHue(random(0, 360));
   }, [mode]);
 
-  console.log(hue)
+  console.log(hue);
 
   return (
     <>
-    <main className={`fragment max-h-screen overflow-hidden -z-10 absolute ${mode.darkMode?"grayscale":""}`}>
-      <Orbs hue={hue}/>
-    </main>
+      <main
+        className={`fragment max-h-screen overflow-hidden -z-10 absolute ${
+          mode.darkMode ? "grayscale" : ""
+        }`}
+      >
+        <Orbs hue={hue} />
+      </main>
     </>
-    
   );
 };
 
