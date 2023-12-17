@@ -46,7 +46,7 @@ const Hamburger = ({ navVisible, setNavVisible }: Props) => {
               />
             </motion.div>
 
-            <div className="flex flex-col justify-center items-center h-full z-50 ">
+            <div className="flex flex-col justify-center items-center ml-20 h-full z-50 ">
               <div className="flex flex-col justify-center gap-4 text-[2em] z-50 tracking-wide font-bold noHighlight">
                 <motion.div
                   initial={{ opacity: 0, x: -100 }}
@@ -56,14 +56,15 @@ const Hamburger = ({ navVisible, setNavVisible }: Props) => {
                     scale: 1.1,
                     x:-10,
                     transition: { duration: 0.1 },
+                    shadow: "0px 0px 10px 0px rgba(0,0,0,0.75)"
                   }}
                 >
                   <Link
                     href="/"
-                    className="fiexenFont text-black hover:text-[#0028ff]/70"
+                    className="fiexenFont text-black hover:text-[#0028ff]/70 "
                     onClick={() => setNavVisible(false)}
                   >
-                    Home
+                   <span className="text-[0.3em] mr-2 montserratFont text-black">01</span>Home
                   </Link>
                 </motion.div>
 
@@ -82,7 +83,7 @@ const Hamburger = ({ navVisible, setNavVisible }: Props) => {
                     className="fiexenFont text-black hover:text-[#0028ff]/70"
                     onClick={() => setNavVisible(false)}
                   >
-                    Work
+                    <span className="text-[0.3em] mr-2 montserratFont text-black">02</span>Work
                   </Link>
                 </motion.div>
 
@@ -101,7 +102,7 @@ const Hamburger = ({ navVisible, setNavVisible }: Props) => {
                     className="fiexenFont text-black hover:text-[#0028ff]/70"
                     onClick={() => setNavVisible(false)}
                   >
-                    About
+                    <span className="text-[0.3em] mr-2 montserratFont text-black">03</span>About
                   </Link>
                 </motion.div>
 
@@ -114,13 +115,13 @@ const Hamburger = ({ navVisible, setNavVisible }: Props) => {
                     x:-10,
                     transition: { duration: 0.1 },
                   }}
-                >
+                >   
                   <Link
                     href="/"
                     className="fiexenFont text-black hover:text-[#0028ff]/70"
                     onClick={() => setNavVisible(false)}
                   >
-                    Contact
+                    <span className="text-[0.3em] mr-2 montserratFont text-black">04</span>Contact
                   </Link>
                 </motion.div>
               </div>
