@@ -4,6 +4,7 @@ import crossLogo from "../../../public/cross.svg";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import "../Index.css";
+import {useModeContext} from "../../../context/DarkModeContext"
 
 type Props = {
   navVisible: boolean;
@@ -11,6 +12,7 @@ type Props = {
 };
 
 const Hamburger = ({ navVisible, setNavVisible }: Props) => {
+  const {mode} = useModeContext()
   return (
     <div className={``}>
       <AnimatePresence>
@@ -20,10 +22,10 @@ const Hamburger = ({ navVisible, setNavVisible }: Props) => {
             whileInView={{ scale: 1, x: 0, y: 0 }}
             transition={{ duration: 0.5, type: "spring", stiffness: 80 }}
             exit={{ y: -290, x: 170, scale: 0, transformOrigin: "top", rotate: 180}}
-            className={`absolute h-screen top-0 right-0 rounded-l-full w-[70vw] sm:w-[30vw] z-20 bg-white  select-none shadow-2xl
+            className={`absolute h-screen top-0 right-0 rounded-l-full w-[70vw] sm:w-[30vw] z-20 bg-white select-none shadow-2xl
             max-h-screen max-w-screen overflow-hidden`}
             style={{
-              mixBlendMode: "screen",
+              mixBlendMode: mode.darkMode ? "difference" : "screen",
               backdropFilter: "blur(30px)",
               WebkitBackdropFilter: "blur(30px)",
             }}

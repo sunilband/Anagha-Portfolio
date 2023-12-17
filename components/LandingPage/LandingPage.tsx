@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import "./LandingPage.css";
 import { useModeContext } from "../../context/DarkModeContext";
 import { useAnimationContext } from "@/context/BgAnimationTrigger";
+import Link from "next/link";
+
 
 type Props = {};
 
@@ -43,29 +45,30 @@ const LandingPage = (props: Props) => {
               stiffness: 100,
             }}
             className={`barlowFont text-[3em] tracking-wide ${
-              mode.darkMode
-                ? "text-black"
-                : "text-black"
+              mode.darkMode ? "text-black" : "text-black"
             } leading-none font-semibold shadowText sm:mt-[1.2rem] mb-6 sm:mb-0 mt-[-20px] `}
             onMouseEnter={() => setRestart(true)}
             onMouseLeave={() => setRestart(false)}
           >
-           {/* ---------------Name---------------- */}
-            <div className={`texture-bg run-animation ${mode.darkMode ? "grayscale" : null}`}
+            {/* ---------------Name---------------- */}
+            <div
+              className={`texture-bg run-animation ${
+                mode.darkMode ? "grayscale" : null
+              }`}
             >
               {NameTextArray.map((letter, index) => (
-              <motion.span
-                key={index}
-                initial={{ opacity: 0, y: -100 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
-              >
-                {letter}
-              </motion.span>
-            ))}
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0, y: -100 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
+                >
+                  {letter}
+                </motion.span>
+              ))}
               <div className="paint-stroke stroke-2"></div>
             </div>
-          {/* ---------------Name End---------------- */}
+            {/* ---------------Name End---------------- */}
           </motion.span>
         </motion.h2>
         <motion.h2
@@ -105,7 +108,7 @@ const LandingPage = (props: Props) => {
             className="hover-underline-animation cursor-pointer"
           >
             {" "}
-            → See my projects
+            <Link href="/projects"> → See my projects</Link>
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: -50 }}
@@ -113,8 +116,7 @@ const LandingPage = (props: Props) => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="hover-underline-animation cursor-pointer"
           >
-            {" "}
-            → More about me
+            <Link href="/about"> → More about me</Link>
           </motion.p>
         </div>
       </div>
