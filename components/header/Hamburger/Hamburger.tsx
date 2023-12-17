@@ -20,7 +20,7 @@ const Hamburger = ({ navVisible, setNavVisible }: Props) => {
             whileInView={{ scale: 1, x: 0, y: 0 }}
             transition={{ duration: 0.5, type: "spring", stiffness: 80 }}
             exit={{ y: -290, x: 170, scale: 0, transformOrigin: "top" }}
-            className="absolute h-screen top-0 right-0 rounded-l-full w-[70vw] sm:w-[30vw] z-20 bg-blend-difference bg-white select-none shadow-2xl
+            className="absolute h-screen top-0 right-0 rounded-l-full w-[70vw] sm:w-[30vw] z-20 bg-blend-difference bg-slate-50  select-none shadow-2xl
             max-h-screen max-w-screen overflow-hidden
             "
           >
