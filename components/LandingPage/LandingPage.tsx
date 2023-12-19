@@ -7,7 +7,6 @@ import { useModeContext } from "../../context/DarkModeContext";
 import { useAnimationContext } from "@/context/BgAnimationTrigger";
 import Link from "next/link";
 
-
 type Props = {};
 
 const LandingPage = (props: Props) => {

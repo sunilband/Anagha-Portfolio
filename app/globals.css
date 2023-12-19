@@ -1,53 +1,52 @@
-@import url('https://fonts.googleapis.com/css2?family=Train+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Train+One&display=swap");
 /* monstarat and borlow condensed fonts */
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Montserrat&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Fiexen";
+  src: url("../public/Feixen.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
 
 @font-face {
-    font-family:'Fiexen';
-    src: url('../public/Feixen.ttf') ;
-    font-weight: normal;
-    font-style: normal;
+  font-family: "FiexenBold";
+  src: url("../public/FeixenBold.ttf");
+  font-weight: bold;
+  font-style: normal;
 }
 
-@font-face {
-    font-family:'FiexenBold';
-    src: url('../public/FeixenBold.ttf') ;
-    font-weight: bold;
-    font-style: normal;
+.fiexenFont {
+  font-family: "Fiexen";
 }
 
-.fiexenFont{
-    font-family: 'Fiexen';
+.fiexenFontBold {
+  font-family: "FiexenBold";
 }
 
-.fiexenFontBold{
-    font-family: 'FiexenBold';
+.trainFont {
+  font-family: "Train One";
 }
 
-.trainFont{
-    font-family: 'Train One';
+.montserratFont {
+  font-family: "Montserrat";
 }
 
-.montserratFont{
-    font-family: 'Montserrat';
-}
-
-.barlowFont{
-    font-family: 'Barlow Condensed';
+.barlowFont {
+  font-family: "Barlow Condensed";
 }
 
 /* hide scrollbar */
 /* Hide scrollbar for Chrome, Safari and Opera */
 .hideScroll::-webkit-scrollbar {
-    display: none;
-  }
-  
-  /* Hide scrollbar for IE, Edge and Firefox */
-  .hideScroll {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  }
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hideScroll {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

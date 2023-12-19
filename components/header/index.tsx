@@ -38,7 +38,7 @@ const Header = forwardRef(function Index(props, ref) {
           <div ref={ref} className={styles.bounds}></div>
         </div>
       </div>
-          <Hamburger navVisible={navVisible} setNavVisible={setNavVisible} />
+      <Hamburger navVisible={navVisible} setNavVisible={setNavVisible} />
     </div>
   );
 });

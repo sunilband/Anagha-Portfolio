@@ -1,12 +1,10 @@
-import WorkSection from '@/components/WorkSection/WorkSection'
-import React from 'react'
+import WorkSection from "@/components/WorkSection/WorkSection";
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 const page = (props: Props) => {
-  return (
-    <WorkSection/>
-  )
-}
+  return <WorkSection />;
+};
 
-export default page
+export default page;

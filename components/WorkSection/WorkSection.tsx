@@ -3,10 +3,12 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useAnimationContext } from "@/context/BgAnimationTrigger";
 
 type Props = {};
 
 const WorkSection = (props: Props) => {
+  const { restart, setRestart } = useAnimationContext();
   const [selectedProject, setSelectedProject] = useState<any>(0);
   const [rerender, setRerender] = useState<any>(false);
   const repeat = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -23,13 +25,13 @@ const WorkSection = (props: Props) => {
   }, [selectedProject]);
 
   return (
-    <div className="flex items-end  h-screen overflow-hidden">
+    <div className="flex flex-col lg:flex-row items-center justify-end lg:items-end flex-wrap  h-screen overflow-hidden">
       {/* images section */}
       <motion.div
         initial={{ opacity: 0, transformOrigin: "bottom left" }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.4, delay: 0.1 }}
-        className="w-[50%] h-[70%] overflow-hidden rounded-tr-[100px]"
+        className="lg:w-[50%] w-[90%] h-fit overflow-hidden md:rounded-tr-[100px]"
       >
         {rerender && (
           <motion.div
@@ -40,6 +42,7 @@ const WorkSection = (props: Props) => {
             }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4, delay: 0.1 }}
+            exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.4 } }}
           >
             <Image
               src={randomImageArray[selectedProject]}
@@ -47,28 +50,40 @@ const WorkSection = (props: Props) => {
               height={1000}
               alt="project image"
               objectFit="contain"
-              className="h-fit w-fit rounded-tr-[100px]"
+              className="h-fit w-fit md:rounded-tr-[100px]"
             />
           </motion.div>
         )}
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, y:100 }}
+        initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.1 }}
-        className="w-[50%] h-[60%] px-8"
+        className="lg:w-[50%] w-[95%] h-[60%] px-8"
       >
         <div className="flex justify-between items-center px-4">
-          <h2 className="barlowFont text-[2em] font-bold tracking-wider">
+          <motion.h2
+            whileHover={{
+              letterSpacing: "7px",
+              transition: { duration: 0.2 },
+            }}
+            className="barlowFont text-[2em] font-bold tracking-wider text-black"
+            onMouseEnter={() => {
+              setRestart(!restart);
+            }}
+            onMouseLeave={() => {
+              setRestart(!restart);
+            }}
+          >
             WORK
-          </h2>
+          </motion.h2>
           <p className="montserratFont">9</p>
         </div>
         {/* divider */}
         <div className="w-full h-[1px] bg-[#000000] opacity-50" />
         {/* project section */}
-        <div className="flex flex-col  h-[300px] overflow-auto hideScroll">
+        <div className="flex flex-col  h-[80%] overflow-auto hideScroll">
           {repeat.map((item, index) => {
             return (
               <motion.div
@@ -82,7 +97,7 @@ const WorkSection = (props: Props) => {
                     : setSelectedProject(0)
                 }
                 onHoverEnd={() => {
-                  setSelectedProject(null);
+                  setSelectedProject(1);
                 }}
               >
                 <div className="flex w-[100%] justify-between px-2 items-center group">
@@ -108,7 +123,7 @@ const WorkSection = (props: Props) => {
                     {index == 0 ? (
                       <div className="relative">
                         <span>Task Manager App {index}</span>
-                        <span className="absolute right-[-4.5rem] text-lg p-2 rounded-full bg-[#7AF8CD] text-black">
+                        <span className="absolute lg:right-[-4.5rem] right-24  top-[-1.0em] lg:top-auto  scale-75 lg:scale-100 text-lg px-1 py-0 lg:px-2 lg:py-2 lg:rounded-full bg-[#7AF8CD] text-black">
                           new
                         </span>
                       </div>

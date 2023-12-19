@@ -79,11 +79,11 @@ const Orb = ({ hue }) => {
   return (
     <>
       <motion.circle
-        initial={{ x: random(-100, 100), y: random(-100, 100) ,scale:0 }}
+        initial={{ x: random(-100, 100), y: random(-100, 100), scale: 0 }}
         animate={
           animationTriggered
-            ? { x: 0, y: 0 ,scale:1}
-            : { x: random(-500, 500), y: random(-500, 500),scale:1 }
+            ? { x: 0, y: 0, scale: 1 }
+            : { x: random(-500, 500), y: random(-500, 500), scale: 1 }
         }
         transition={{
           duration: 3,

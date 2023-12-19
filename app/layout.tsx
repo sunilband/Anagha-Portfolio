@@ -3,7 +3,6 @@ import "./globals.css";
 import type { Metadata } from "next";
 import CursorWrapper from "../components/CursorWrapper/CursorWrapper";
 
-
 import { ModeProvider } from "../context/DarkModeContext";
 import { AnimationProvider } from "../context/BgAnimationTrigger";
 
