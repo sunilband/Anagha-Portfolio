@@ -9,10 +9,10 @@ type Props = {};
 const CursorWrapper = (props: Props) => {
   const stickyElement = useRef(null);
   return (
-    <>
+    <div className="max-w-screen">
       <Header ref={stickyElement} />
       <StickyCursor stickyElement={stickyElement} />
-    </>
+    </div>
   );
 };
 

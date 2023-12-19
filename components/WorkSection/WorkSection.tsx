@@ -50,7 +50,7 @@ const WorkSection = (props: Props) => {
               height={1000}
               alt="project image"
               objectFit="contain"
-              className="h-fit w-fit md:rounded-tr-[100px]"
+              className="hidden h-fit w-fit md:rounded-tr-[100px] lg:block"
             />
           </motion.div>
         )}
@@ -123,7 +123,7 @@ const WorkSection = (props: Props) => {
                     {index == 0 ? (
                       <div className="relative">
                         <span>Task Manager App {index}</span>
-                        <span className="absolute right-24 top-[-1.0em]  scale-75 bg-[#7AF8CD]  px-1 py-0 text-lg text-black lg:right-[-4.5rem] lg:top-auto lg:scale-100 lg:rounded-full lg:px-2 lg:py-2">
+                        <span className="invisible absolute right-[-4rem] rounded-full bg-[#7AF8CD] p-2 text-lg lg:visible">
                           new
                         </span>
                       </div>

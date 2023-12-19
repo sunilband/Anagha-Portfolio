@@ -18,8 +18,10 @@ const LandingPage = (props: Props) => {
   const NameTextArray = NameText.split("");
 
   return (
-    <div className="flex h-screen justify-center items-center p-2">
-      <div className="flex flex-wrap flex-col items-center justify-center sm:gap-[-50px] gap-10">
+    <div className="flex h-screen items-center justify-center p-2">
+      <div
+        className={`flex flex-col flex-wrap items-center justify-center gap-10 sm:gap-[-50px]`}
+      >
         <motion.h2
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -29,9 +31,9 @@ const LandingPage = (props: Props) => {
             type: "spring",
             stiffness: 100,
           }}
-          className="flex items-center justify-center gap-8 flex-wrap leading-none mb-[-30px] cursor-default"
+          className="mb-[-30px] flex cursor-default flex-wrap items-center justify-center gap-8 leading-none"
         >
-          <span className="montserratFont sm:text-[2em] text-[1.5em]">
+          <span className="montserratFont text-[1.5em] sm:text-[2em]">
             HEY, I’M
           </span>{" "}
           <motion.span
@@ -45,7 +47,7 @@ const LandingPage = (props: Props) => {
             }}
             className={`barlowFont text-[3em] tracking-wide ${
               mode.darkMode ? "text-black" : "text-black"
-            } leading-none font-semibold shadowText sm:mt-[1.2rem] mb-6 sm:mb-0 mt-[-20px] `}
+            } shadowText mb-6 mt-[-20px] font-semibold leading-none sm:mb-0 sm:mt-[1.2rem] `}
             onMouseEnter={() => setRestart(true)}
             onMouseLeave={() => setRestart(false)}
           >
@@ -74,15 +76,15 @@ const LandingPage = (props: Props) => {
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: 0.2 }}
-          className="flex items-center gap-8 flex-wrap justify-center leading-none sm:mt-0 mt-10 cursor-default"
+          className="mt-10 flex cursor-default flex-wrap items-center justify-center gap-8 leading-none sm:mt-0"
         >
-          <span className="montserratFont sm:text-[2em] text-[1.5em] ">
+          <span className="montserratFont text-[1.5em] sm:text-[2em] ">
             BUT YOU CAN CALL ME
           </span>{" "}
           <span
             className={`barlowFont text-[3em] tracking-wide ${
               mode.darkMode ? "text-black" : "text-black"
-            } font-semibold shadowText sm:mt-[1.2rem] mt-[-20px]`}
+            } shadowText mt-[-20px] font-semibold sm:mt-[1.2rem]`}
           >
             ANAA
           </span>
@@ -93,13 +95,13 @@ const LandingPage = (props: Props) => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="sm:w-[50%]"
         >
-          <h3 className="cursor-default fiexenFont text-[25px] leading-tight bg-clip-text">
+          <h3 className="fiexenFont cursor-default bg-clip-text text-[25px] leading-tight">
             I’m a Flutter Developer, UX/UI designer & Professional
             Procrastinator
           </h3>
         </motion.div>
 
-        <div className="flex flex-wrap items-center justify-center gap-10 font-semibold leading none fiexenFont">
+        <div className="leading none fiexenFont flex flex-wrap items-center justify-center gap-10 font-semibold">
           <motion.p
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}

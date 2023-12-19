@@ -5,6 +5,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/* These lines added for framer motion overflow issue */
+html,
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+}
+/*  */
 @font-face {
   font-family: "Fiexen";
   src: url("../public/Feixen.ttf");

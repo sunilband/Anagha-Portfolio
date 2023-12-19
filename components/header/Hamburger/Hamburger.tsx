@@ -14,12 +14,12 @@ type Props = {
 const Hamburger = ({ navVisible, setNavVisible }: Props) => {
   const { mode } = useModeContext();
   return (
-    <div className={``}>
+    <div className={`overflow-y-hidden`}>
       <AnimatePresence>
         {navVisible && (
           <motion.div
-            initial={{ scale: 1, x: -100 }}
-            whileInView={{ scale: 1, x: 0, y: 0 }}
+            initial={{ scale: 1, x: 100, y: -290, overflow: "auto" }}
+            whileInView={{ scale: 1, x: 0, y: 0, overflow: "hidden" }}
             transition={{ duration: 0.5, type: "spring", stiffness: 80 }}
             exit={{
               y: -290,
@@ -28,8 +28,8 @@ const Hamburger = ({ navVisible, setNavVisible }: Props) => {
               transformOrigin: "top",
               rotate: 180,
             }}
-            className={`absolute h-screen top-0 right-0 rounded-l-full w-[70vw] sm:w-[30vw] z-20 bg-white select-none shadow-2xl
-            max-h-screen max-w-screen overflow-hidden`}
+            className={`max-w-screen absolute right-0 top-0 z-20 h-screen max-h-screen w-[70vw] select-none overflow-hidden rounded-l-full
+            bg-white shadow-2xl sm:w-[30vw]`}
             style={{
               mixBlendMode: mode.darkMode ? "difference" : "screen",
               backdropFilter: "blur(30px)",
@@ -53,13 +53,13 @@ const Hamburger = ({ navVisible, setNavVisible }: Props) => {
                 alt="Picture of the author"
                 width={50}
                 height={50}
-                className="absolute sm:top-8 sm:right-12 top-12 right-5 cursor-pointer select-none"
+                className="absolute right-5 top-12 cursor-pointer select-none sm:right-12 sm:top-8"
                 onClick={() => setNavVisible(false)}
               />
             </motion.div>
 
-            <div className="flex flex-col justify-center items-center ml-20 h-full z-50 ">
-              <div className="flex flex-col justify-center gap-4 text-[2em] z-50 tracking-wide font-bold noHighlight">
+            <div className="z-50 ml-20 flex h-full flex-col items-center justify-center ">
+              <div className="noHighlight z-50 flex flex-col justify-center gap-4 text-[2em] font-bold tracking-wide">
                 <motion.div
                   initial={{ opacity: 0, x: -100 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -76,7 +76,7 @@ const Hamburger = ({ navVisible, setNavVisible }: Props) => {
                     className="fiexenFont text-black"
                     onClick={() => setNavVisible(false)}
                   >
-                    <span className="text-[0.3em] mr-2 montserratFont text-black">
+                    <span className="montserratFont mr-2 text-[0.3em] text-black">
                       01
                     </span>
                     Home
@@ -98,7 +98,7 @@ const Hamburger = ({ navVisible, setNavVisible }: Props) => {
                     className="fiexenFont text-black"
                     onClick={() => setNavVisible(false)}
                   >
-                    <span className="text-[0.3em] mr-2 montserratFont text-black">
+                    <span className="montserratFont mr-2 text-[0.3em] text-black">
                       02
                     </span>
                     Work
@@ -116,11 +116,11 @@ const Hamburger = ({ navVisible, setNavVisible }: Props) => {
                   }}
                 >
                   <Link
-                    href="/projects"
+                    href="/about"
                     className="fiexenFont text-black"
                     onClick={() => setNavVisible(false)}
                   >
-                    <span className="text-[0.3em] mr-2 montserratFont text-black">
+                    <span className="montserratFont mr-2 text-[0.3em] text-black">
                       03
                     </span>
                     About
@@ -138,11 +138,11 @@ const Hamburger = ({ navVisible, setNavVisible }: Props) => {
                   }}
                 >
                   <Link
-                    href="/"
+                    href="/contact"
                     className="fiexenFont text-black"
                     onClick={() => setNavVisible(false)}
                   >
-                    <span className="text-[0.3em] mr-2 montserratFont text-black">
+                    <span className="montserratFont mr-2 text-[0.3em] text-black">
                       04
                     </span>
                     Contact

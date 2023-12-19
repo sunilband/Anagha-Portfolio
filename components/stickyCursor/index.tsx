@@ -13,7 +13,7 @@ import {
 export default function StickyCursor({ stickyElement }) {
   const [isHovered, setIsHovered] = useState(false);
   const cursor = useRef(null);
-  const cursorSize = isHovered ? 60 : 15;
+  const cursorSize = isHovered ? 60 : 40;
 
   const mouse = {
     x: useMotionValue(0),
@@ -99,7 +99,7 @@ export default function StickyCursor({ stickyElement }) {
   };
 
   return (
-    <div className={styles.cursorContainer}>
+    <div className={`${styles.cursorContainer} invisible lg:visible`}>
       <motion.div
         transformTemplate={template}
         style={{
@@ -112,7 +112,9 @@ export default function StickyCursor({ stickyElement }) {
           width: cursorSize,
           height: cursorSize,
         }}
-        className={`${styles.cursor} ${isHovered ? "bg-black" : "bg-black/50"}`}
+        className={`${styles.cursor} ${
+          isHovered ? "bg-black" : "bg-white mix-blend-exclusion"
+        }`}
         ref={cursor}
       ></motion.div>
     </div>
