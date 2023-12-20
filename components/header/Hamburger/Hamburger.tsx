@@ -32,7 +32,8 @@ const Hamburger = ({ navVisible, setNavVisible }: Props) => {
             bg-white shadow-2xl sm:w-[30vw]`}
             style={{
               mixBlendMode: mode.darkMode ? "difference" : "screen",
-              backdropFilter: "blur(30px)",
+              backdropFilter:
+                "blur(30px) saturate(180%) contrast(80%) brightness(80%)",
               WebkitBackdropFilter: "blur(30px)",
             }}
           >
