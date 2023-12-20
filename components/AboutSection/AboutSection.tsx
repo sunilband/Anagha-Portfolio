@@ -32,8 +32,12 @@ const AboutSection = (props: Props) => {
               duration: 0.5,
               delay: 0.3,
             }}
-            className="mt-32 h-[250px] w-[350px] self-center overflow-hidden rounded-[20px] md:h-[500px] md:w-[600px] md:rounded-[30px] lg:hidden"
+            className="relative mt-32 h-[250px] w-[350px] self-center overflow-hidden rounded-[20px] md:h-[500px] md:w-[600px] md:rounded-[30px] lg:hidden"
           >
+            {" "}
+            <div className="absolute left-[25%] top-[-16px] w-[200px] md:left-1 md:top-1">
+              <NowPlaying />
+            </div>
             <Image src={AboutImage} alt="Picture of the author" priority />
           </motion.div>
 
