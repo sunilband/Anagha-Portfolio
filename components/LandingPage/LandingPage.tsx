@@ -18,7 +18,10 @@ const LandingPage = (props: Props) => {
   const NameTextArray = NameText.split("");
 
   return (
-    <div className="flex h-screen items-center justify-center p-2">
+    <motion.div
+      exit={{ opacity: 0, y: 100, transition: { duration: 0.5 } }}
+      className="flex h-screen items-center justify-center overflow-hidden p-2 "
+    >
       <div
         className={`flex flex-col flex-wrap items-center justify-center gap-10 sm:gap-[-50px]`}
       >
@@ -121,7 +124,7 @@ const LandingPage = (props: Props) => {
           </motion.p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

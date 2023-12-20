@@ -138,7 +138,7 @@ Orbs.displayName = "Orbs"; // Add display name to the component
 type Props = {};
 
 const Background = (props: Props) => {
-  const [hue, setHue] = useState(24);
+  const [hue, setHue] = useState(113);
   // 73
   const { mode, setMode } = useModeContext();
 
@@ -151,7 +151,7 @@ const Background = (props: Props) => {
   return (
     <>
       <main
-        className={`fragment max-h-screen overflow-hidden -z-10 absolute ${
+        className={`fragment absolute -z-10 max-h-screen overflow-hidden ${
           mode.darkMode ? "grayscale" : ""
         }`}
       >

@@ -25,13 +25,20 @@ const WorkSection = (props: Props) => {
   }, [selectedProject]);
 
   return (
-    <div className="flex h-screen flex-col flex-wrap items-center justify-end overflow-hidden  lg:flex-row lg:items-end">
+    <motion.div
+      exit={{
+        opacity: 0,
+        y: 100,
+        transition: { duration: 0.5 },
+      }}
+      className="flex h-screen flex-col flex-wrap items-center justify-end overflow-hidden  lg:flex-row lg:items-end"
+    >
       {/* images section */}
       <motion.div
         initial={{ opacity: 0, transformOrigin: "bottom left" }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.4, delay: 0.1 }}
-        className="h-fit w-[90%] overflow-hidden md:rounded-tr-[100px] lg:w-[50%]"
+        className="h-fit w-[90%] overflow-hidden md:rounded-tr-[300px] lg:w-[50%]"
       >
         {rerender && (
           <motion.div
@@ -50,7 +57,7 @@ const WorkSection = (props: Props) => {
               height={1000}
               alt="project image"
               objectFit="contain"
-              className="hidden h-fit w-fit md:rounded-tr-[100px] lg:block"
+              className="hidden h-fit w-fit md:rounded-tr-[300px] lg:block"
             />
           </motion.div>
         )}
@@ -111,7 +118,6 @@ const WorkSection = (props: Props) => {
                       type: "spring",
                       stiffness: 1000,
                     }}
-                    exit={{ rotate: 180 }}
                     whileHover={{
                       x: 10,
                       transition: { duration: 0.2 },
@@ -140,7 +146,7 @@ const WorkSection = (props: Props) => {
           })}
         </div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 
