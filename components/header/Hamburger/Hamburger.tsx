@@ -62,9 +62,13 @@ const Hamburger = ({ navVisible, setNavVisible }: Props) => {
             <div className="z-50 ml-20 flex h-full flex-col items-center justify-center ">
               <div className="noHighlight z-50 flex flex-col justify-center gap-4 text-[2em] font-bold tracking-wide">
                 <motion.div
-                  initial={{ opacity: 0, x: -100 }}
+                  initial={{ opacity: 0, x: -200 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.2, type: "spring", stiffness: 100 }}
+                  transition={{
+                    duration: 0.2,
+                    type: "spring",
+                    stiffness: 1000,
+                  }}
                   whileHover={{
                     scale: 1.1,
                     x: -10,
@@ -87,7 +91,11 @@ const Hamburger = ({ navVisible, setNavVisible }: Props) => {
                 <motion.div
                   initial={{ opacity: 0, y: 100 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, type: "spring", stiffness: 100 }}
+                  transition={{
+                    duration: 0.3,
+                    type: "spring",
+                    stiffness: 1000,
+                  }}
                   whileHover={{
                     scale: 1.1,
                     x: -10,
@@ -109,7 +117,11 @@ const Hamburger = ({ navVisible, setNavVisible }: Props) => {
                 <motion.div
                   initial={{ opacity: 0, x: 100 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, type: "spring", stiffness: 100 }}
+                  transition={{
+                    duration: 0.4,
+                    type: "spring",
+                    stiffness: 1000,
+                  }}
                   whileHover={{
                     scale: 1.1,
                     x: -10,
@@ -131,7 +143,11 @@ const Hamburger = ({ navVisible, setNavVisible }: Props) => {
                 <motion.div
                   initial={{ opacity: 0, y: -100 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
+                  transition={{
+                    duration: 0.5,
+                    type: "spring",
+                    stiffness: 1000,
+                  }}
                   whileHover={{
                     scale: 1.1,
                     x: -10,

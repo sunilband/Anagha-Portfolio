@@ -5,6 +5,7 @@ import { useAnimationContext } from "@/context/BgAnimationTrigger";
 import Image from "next/image";
 import AboutImage from "@/public/anagha.webp";
 import { useModeContext } from "../../context/DarkModeContext";
+import NowPlaying from "../NowPlaying/NowPlaying";
 
 type Props = {};
 
@@ -31,7 +32,7 @@ const AboutSection = (props: Props) => {
               duration: 0.5,
               delay: 0.3,
             }}
-            className="mt-28 h-[300px] w-[300px] self-center overflow-hidden rounded-[30px] lg:hidden"
+            className="mt-32 h-[250px] w-[350px] self-center overflow-hidden rounded-[20px] md:h-[500px] md:w-[600px] md:rounded-[30px] lg:hidden"
           >
             <Image src={AboutImage} alt="Picture of the author" priority />
           </motion.div>
@@ -84,7 +85,7 @@ const AboutSection = (props: Props) => {
               type: "spring",
               stiffness: 100,
             }}
-            className="fiexenFont cursor-default  bg-clip-text text-justify text-[20px] leading-snug tracking-wide lg:w-[95%] lg:text-[25px]"
+            className="fiexenFont cursor-default  bg-clip-text text-justify text-[17px] leading-snug tracking-wide lg:w-[95%] lg:text-[25px]"
           >
             Hey, my name is <span className="font-semibold">Anagha</span> your
             go-to Full Stack{" "}
@@ -141,8 +142,11 @@ const AboutSection = (props: Props) => {
         }}
         className={`z-[-10] hidden w-[500px] overflow-hidden rounded-bl-full md:w-[1000px] lg:block ${
           mode.darkMode ? "grayscale" : ""
-        }`}
+        } relative`}
       >
+        <div className="absolute left-1 top-1 w-[250px]">
+          <NowPlaying />
+        </div>
         <Image src={AboutImage} alt="Picture of the author" priority />
       </motion.div>
     </motion.div>

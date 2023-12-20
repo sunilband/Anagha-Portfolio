@@ -13,6 +13,14 @@ const nextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: "/api/:path*",
+        destination: "https://spotify-github-profile.vercel.app/api/:path*",
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
