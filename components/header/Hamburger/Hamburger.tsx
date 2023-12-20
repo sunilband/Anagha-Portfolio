@@ -67,7 +67,7 @@ const Hamburger = ({ navVisible, setNavVisible }: Props) => {
                   transition={{
                     duration: 0.2,
                     type: "spring",
-                    stiffness: 1000,
+                    stiffness: 400,
                   }}
                   whileHover={{
                     scale: 1.1,
@@ -94,7 +94,7 @@ const Hamburger = ({ navVisible, setNavVisible }: Props) => {
                   transition={{
                     duration: 0.3,
                     type: "spring",
-                    stiffness: 1000,
+                    stiffness: 400,
                   }}
                   whileHover={{
                     scale: 1.1,
@@ -120,7 +120,7 @@ const Hamburger = ({ navVisible, setNavVisible }: Props) => {
                   transition={{
                     duration: 0.4,
                     type: "spring",
-                    stiffness: 1000,
+                    stiffness: 400,
                   }}
                   whileHover={{
                     scale: 1.1,
@@ -146,7 +146,7 @@ const Hamburger = ({ navVisible, setNavVisible }: Props) => {
                   transition={{
                     duration: 0.5,
                     type: "spring",
-                    stiffness: 1000,
+                    stiffness: 400,
                   }}
                   whileHover={{
                     scale: 1.1,

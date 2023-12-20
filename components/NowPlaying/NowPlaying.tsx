@@ -34,7 +34,9 @@ const NowPlaying = (props: Props) => {
           }}
           className="text-white"
         >
-          <p className="montserratFont ml-5 text-lg text-white">Now Playing</p>
+          <p className="montserratFont ml-5 text-center text-lg tracking-widest text-white">
+            Now Playing
+          </p>
           <div className="rounded-xl bg-black/80">
             <Image
               src={image}

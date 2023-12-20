@@ -144,14 +144,19 @@ const AboutSection = (props: Props) => {
           x: 100,
           transition: { duration: 0.5 },
         }}
-        className={`z-[-10] hidden w-[500px] overflow-hidden rounded-bl-full md:w-[1000px] lg:block ${
+        className={`z-[-10] hidden w-[500px]  rounded-bl-full md:w-[1000px] lg:block ${
           mode.darkMode ? "grayscale" : ""
         } relative`}
       >
-        <div className="absolute left-1 top-1 w-[250px]">
+        <div className="absolute left-[-10%] top-1 z-50 w-[250px]">
           <NowPlaying />
         </div>
-        <Image src={AboutImage} alt="Picture of the author" priority />
+        <Image
+          src={AboutImage}
+          alt="Picture of the author"
+          priority
+          className="rounded-bl-full"
+        />
       </motion.div>
     </motion.div>
   );
