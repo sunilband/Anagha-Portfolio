@@ -138,7 +138,7 @@ const AboutSection = (props: Props) => {
           mode.darkMode ? "grayscale" : ""
         }`}
       >
-        <Image src={AboutImage} alt="Picture of the author" />
+        <Image src={AboutImage} alt="Picture of the author" priority />
       </motion.div>
     </motion.div>
   );
