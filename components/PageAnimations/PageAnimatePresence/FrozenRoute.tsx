@@ -1,5 +1,4 @@
 // src/components/HOC/PageAnimations/PageAnimatePresence/FrozenRoute.tsx
-
 "use client";
 
 import { useContext, useRef } from "react";

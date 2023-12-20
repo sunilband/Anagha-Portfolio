@@ -1,5 +1,3 @@
-// src/components/HOC/PageAnimations/PageAnimatePresence/index.tsx
-
 "use client";
 
 import { usePathname } from "next/navigation";

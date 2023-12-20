@@ -13,15 +13,15 @@ const AboutSection = (props: Props) => {
   const { restart, setRestart } = useAnimationContext();
   const [downloadRotate, setDownloadRotate] = useState(false);
   return (
-    <motion.div
-      exit={{
-        opacity: 0,
-        y: -100,
-        transition: { duration: 0.5 },
-      }}
-      className="flex h-screen w-screen flex-col-reverse items-start justify-center overflow-hidden md:flex-row"
-    >
-      <div className="flex w-full justify-center gap-4 lg:justify-end">
+    <motion.div className="flex h-screen w-screen flex-col-reverse items-start justify-center overflow-hidden md:flex-row">
+      <motion.div
+        exit={{
+          opacity: 0,
+          x: -100,
+          transition: { duration: 0.5 },
+        }}
+        className="flex w-full justify-center gap-4 lg:justify-end"
+      >
         {/* about data */}
         <div className="mr-2 flex h-screen w-[90%] flex-col justify-center gap-4">
           <motion.div
@@ -33,7 +33,7 @@ const AboutSection = (props: Props) => {
             }}
             className="mt-28 h-[300px] w-[300px] self-center overflow-hidden rounded-[30px] lg:hidden"
           >
-            <Image src={AboutImage} alt="Picture of the author" />
+            <Image src={AboutImage} alt="Picture of the author" priority />
           </motion.div>
 
           <motion.h2
@@ -126,13 +126,18 @@ const AboutSection = (props: Props) => {
             Resume
           </motion.p>
         </div>
-      </div>
+      </motion.div>
       <motion.div
         initial={{ opacity: 0, y: -100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
           duration: 0.5,
           delay: 0.3,
+        }}
+        exit={{
+          opacity: 0,
+          x: 100,
+          transition: { duration: 0.5 },
         }}
         className={`z-[-10] hidden w-[500px] overflow-hidden rounded-bl-full md:w-[1000px] lg:block ${
           mode.darkMode ? "grayscale" : ""
