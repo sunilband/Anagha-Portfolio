@@ -19,7 +19,7 @@ const LandingPage = (props: Props) => {
 
   return (
     <motion.div
-      exit={{ opacity: 0, y: 100, transition: { duration: 0.5 } }}
+      exit={{ opacity: 0, y: 100, transition: { duration: 0.3 } }}
       className="flex h-screen items-center justify-center overflow-hidden p-2 "
     >
       <div

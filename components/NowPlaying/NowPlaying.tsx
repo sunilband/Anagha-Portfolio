@@ -6,11 +6,9 @@ import { motion } from "framer-motion";
 type Props = {};
 
 const NowPlaying = (props: Props) => {
-  const spotifyProfileImage =
-    "/api/view?uid=4gel4wwd26zfud51zvo75fxwn&cover_image=true&theme=natemoo-re&show_offline=false&background_color=121212&interchange=false&bar_color=53b14f&bar_color_cover=false";
+  const spotifyProfileImage = process.env.NEXT_PUBLIC_NOW_PLAYING_URL || "";
   const [image, setImage] = useState<any>(null);
   useEffect(() => {
-    // the fetch request will return a svg
     fetch(spotifyProfileImage)
       .then((res) => res.blob())
       .then((blob) => {
@@ -31,6 +29,10 @@ const NowPlaying = (props: Props) => {
             delay: 0.3,
             type: "spring",
             stiffness: 100,
+          }}
+          whileHover={{
+            scale: 1.1,
+            transition: { duration: 0.2 },
           }}
           className="text-white"
         >

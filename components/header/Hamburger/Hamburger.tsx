@@ -31,7 +31,7 @@ const Hamburger = ({ navVisible, setNavVisible }: Props) => {
             className={`max-w-screen absolute right-0 top-0 z-20 h-screen max-h-screen w-[70vw] select-none overflow-hidden rounded-l-full
             bg-white shadow-2xl sm:w-[30vw]`}
             style={{
-              mixBlendMode: mode.darkMode ? "difference" : "screen",
+              mixBlendMode: mode.darkMode ? "screen" : "screen",
               backdropFilter:
                 "blur(30px) saturate(180%) contrast(80%) brightness(80%)",
               WebkitBackdropFilter: "blur(30px)",

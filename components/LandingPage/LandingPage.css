@@ -56,7 +56,7 @@
 .texture-bg.run-animation .paint-stroke.stroke-2 {
   -webkit-animation: wipeInRTL 1s 1s forwards cubic-bezier(1, 0, 0, 1);
   animation: wipeInRTL 1s 1s forwards cubic-bezier(1, 0, 0, 1);
-  animation-delay: 2.5s;
+  animation-delay: 2.2s;
 }
 
 .removeAnimation {

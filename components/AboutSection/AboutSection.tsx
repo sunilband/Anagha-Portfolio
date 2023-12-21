@@ -19,7 +19,7 @@ const AboutSection = (props: Props) => {
         exit={{
           opacity: 0,
           x: -100,
-          transition: { duration: 0.5 },
+          transition: { duration: 0.3 },
         }}
         className="flex w-full justify-center gap-4 lg:justify-end"
       >
@@ -35,7 +35,7 @@ const AboutSection = (props: Props) => {
             className="relative mt-32 h-[250px] w-[350px] self-center overflow-hidden rounded-[20px] md:h-[500px] md:w-[600px] md:rounded-[30px] lg:hidden"
           >
             {" "}
-            <div className="absolute left-[25%] top-[-16px] w-[200px] md:left-1 md:top-1">
+            <div className="absolute left-[50%]  w-[200px] md:left-1 md:top-1">
               <NowPlaying />
             </div>
             <Image src={AboutImage} alt="Picture of the author" priority />
@@ -142,15 +142,22 @@ const AboutSection = (props: Props) => {
         exit={{
           opacity: 0,
           x: 100,
-          transition: { duration: 0.5 },
+          transition: { duration: 0.3 },
         }}
         className={`z-[-10] hidden w-[500px]  rounded-bl-full md:w-[1000px] lg:block ${
           mode.darkMode ? "grayscale" : ""
         } relative`}
       >
-        <div className="absolute left-[-10%] top-1 z-50 w-[250px]">
+        <motion.div
+          exit={{
+            opacity: 0,
+            x: 100,
+            transition: { duration: 0.3 },
+          }}
+          className="absolute left-[-10%] top-1 z-50 w-[250px]"
+        >
           <NowPlaying />
-        </div>
+        </motion.div>
         <Image
           src={AboutImage}
           alt="Picture of the author"

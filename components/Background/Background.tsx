@@ -138,7 +138,7 @@ Orbs.displayName = "Orbs"; // Add display name to the component
 type Props = {};
 
 const Background = (props: Props) => {
-  const [hue, setHue] = useState(113);
+  const [hue, setHue] = useState(60);
   // 73
   const { mode, setMode } = useModeContext();
 

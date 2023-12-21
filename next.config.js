@@ -17,7 +17,9 @@ const nextConfig = {
     return [
       {
         source: "/api/:path*",
-        destination: "https://spotify-github-profile.vercel.app/api/:path*",
+        destination:
+          process.env.NEXT_PUBLIC_PROXY_NOW_PAYING ||
+          "http://localhost:3000/api/:path*",
       },
     ];
   },
