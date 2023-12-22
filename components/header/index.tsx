@@ -8,12 +8,15 @@ import Hamburger from "./Hamburger/Hamburger";
 import Image from "next/image";
 import Logo from "../../public/logo.svg";
 import { motion } from "framer-motion";
+import { useDataContext } from "../../context/DataContext";
 
 const Header = forwardRef(function Index(props, ref) {
   const { mode, setMode } = useModeContext();
   const [navVisible, setNavVisible] = useState(false);
+  const { data } = useDataContext();
+  const { rendered } = data;
 
-  return (
+  return rendered ? (
     <div className="relative">
       <motion.div
         initial={{ opacity: 0, x: -50 }}
@@ -66,7 +69,7 @@ const Header = forwardRef(function Index(props, ref) {
       </motion.div>
       <Hamburger navVisible={navVisible} setNavVisible={setNavVisible} />
     </div>
-  );
+  ) : null;
 });
 
 export default Header;

@@ -13,7 +13,7 @@ const NowPlaying = (props: Props) => {
       .then((res) => res.blob())
       .then((blob) => {
         const objectURL = URL.createObjectURL(blob);
-        console.log(objectURL);
+
         setImage(objectURL);
       });
   }, []);
@@ -34,7 +34,7 @@ const NowPlaying = (props: Props) => {
             scale: 1.1,
             transition: { duration: 0.2 },
           }}
-          className="text-white"
+          className="z-50 text-white"
         >
           <p className="montserratFont ml-5 text-center text-lg tracking-widest text-white">
             Now Playing

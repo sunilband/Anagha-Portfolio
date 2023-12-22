@@ -6,6 +6,7 @@ import { useModeContext } from "../../context/DarkModeContext";
 import { useAnimationContext } from "@/context/BgAnimationTrigger";
 import Link from "next/link";
 import { useDataContext } from "@/context/DataContext";
+import LoadingPage from "../LoadingPage/LoadingPage";
 
 type Props = {};
 
@@ -13,7 +14,7 @@ const LandingPage = (props: Props) => {
   const { setRestart } = useAnimationContext();
   const { mode } = useModeContext();
   const { data } = useDataContext();
-  const { homePage } = data;
+  const { homePage, rendered } = data;
   const NameText = homePage.name;
   const NameTextArray = NameText.toUpperCase().split("");
 
@@ -27,7 +28,7 @@ const LandingPage = (props: Props) => {
       >
         <motion.h2
           initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{
             duration: 0.3,
             delay: 0.5,
@@ -39,7 +40,7 @@ const LandingPage = (props: Props) => {
           <p className="montserratFont text-[1.5em] sm:text-[2em]">HEY, I’M</p>{" "}
           <motion.span
             initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{
               duration: 0.3,
               delay: 0.5,
@@ -62,7 +63,7 @@ const LandingPage = (props: Props) => {
                 <motion.span
                   key={index}
                   initial={{ opacity: 0, y: -100 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
                 >
                   {letter}
@@ -75,7 +76,7 @@ const LandingPage = (props: Props) => {
         </motion.h2>
         <motion.h2
           initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: 0.2 }}
           className="mt-10 flex  flex-wrap items-center justify-center gap-8 leading-none sm:mt-0"
         >
@@ -92,7 +93,7 @@ const LandingPage = (props: Props) => {
         </motion.h2>
         <motion.div
           initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           className="sm:w-[50%]"
         >
@@ -104,7 +105,7 @@ const LandingPage = (props: Props) => {
         <div className="leading none fiexenFont flex flex-wrap items-center justify-center gap-10 font-semibold">
           <motion.p
             initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="hover-underline-animation"
           >
@@ -113,7 +114,7 @@ const LandingPage = (props: Props) => {
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="hover-underline-animation "
           >

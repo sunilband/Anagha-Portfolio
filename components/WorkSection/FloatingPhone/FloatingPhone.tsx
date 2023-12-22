@@ -11,8 +11,6 @@ type Props = {
 const FloatingPhone = ({ topPhone, bottomPhone }: Props) => {
   const randomAnimation = Math.random() > 0.5 ? true : false;
 
-  console.log("in floating phone", topPhone, bottomPhone);
-
   return (
     <div className="relative h-[500px] w-[500px]">
       <motion.div

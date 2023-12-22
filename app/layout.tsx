@@ -29,7 +29,7 @@ export default function RootLayout({
               <PageAnimatePresence>
                 {children}
                 <AnimatedCursor
-                  trailingSpeed={12}
+                  trailingSpeed={10}
                   innerSize={25}
                   outerSize={35}
                   innerScale={2}
