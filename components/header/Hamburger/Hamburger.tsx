@@ -28,7 +28,7 @@ const Hamburger = ({ navVisible, setNavVisible }: Props) => {
               transformOrigin: "top",
               rotate: 180,
             }}
-            className={`max-w-screen absolute right-0 top-0 z-20 h-screen max-h-screen w-[70vw] select-none overflow-hidden rounded-l-full
+            className={`max-w-screen absolute right-0 top-0 z-20 h-screen max-h-screen w-[100vw] select-none overflow-hidden rounded-l-full
             bg-white shadow-2xl sm:w-[30vw]`}
             style={{
               mixBlendMode: mode.darkMode ? "screen" : "screen",
@@ -54,7 +54,7 @@ const Hamburger = ({ navVisible, setNavVisible }: Props) => {
                 alt="Picture of the author"
                 width={50}
                 height={50}
-                className="absolute right-5 top-12 cursor-pointer select-none sm:right-12 sm:top-8"
+                className="absolute right-5 top-12 select-none sm:right-12 sm:top-8"
                 onClick={() => setNavVisible(false)}
               />
             </motion.div>

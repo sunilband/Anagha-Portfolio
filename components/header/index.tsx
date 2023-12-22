@@ -2,14 +2,12 @@
 "use client";
 import { forwardRef, useState } from "react";
 import styles from "./style.module.scss";
-import Magnetic from "../magnetic";
 import "./Index.css";
 import { useModeContext } from "../../context/DarkModeContext";
 import Hamburger from "./Hamburger/Hamburger";
 import Image from "next/image";
 import Logo from "../../public/logo.svg";
 import { motion } from "framer-motion";
-import Link from "next/link";
 
 const Header = forwardRef(function Index(props, ref) {
   const { mode, setMode } = useModeContext();
@@ -42,31 +40,29 @@ const Header = forwardRef(function Index(props, ref) {
           x: 0,
           transition: { duration: 0.5, type: "spring", stiffness: 100 },
         }}
-        className={`${styles.header} flex items-center`}
+        className={`${styles.header} flex items-center gap-10`}
       >
-        <Magnetic>
-          <div className="toggle-switch mr-[-30px] scale-50">
-            <label className="switch-label">
-              <input
-                type="checkbox"
-                className="checkbox"
-                onChange={() => {
-                  setMode({ darkMode: !mode.darkMode });
-                }}
-              />
-              <span className="slider"></span>
-            </label>
-          </div>
-        </Magnetic>
+        <div className="toggle-switch mr-[-30px] scale-50">
+          <label className="switch-label">
+            <input
+              type="checkbox"
+              className="checkbox"
+              onChange={() => {
+                setMode({ darkMode: !mode.darkMode });
+              }}
+            />
+            <div className="slider"></div>
+          </label>
+        </div>
 
-        <div
-          className={styles.burger}
+        <span
+          className={`${styles.burger} mr-8`}
           onClick={() =>
             navVisible ? setNavVisible(false) : setNavVisible(true)
           }
         >
           <div ref={ref} className={styles.bounds}></div>
-        </div>
+        </span>
       </motion.div>
       <Hamburger navVisible={navVisible} setNavVisible={setNavVisible} />
     </div>

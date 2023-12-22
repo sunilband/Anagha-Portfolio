@@ -8,6 +8,7 @@
 /* These lines added for framer motion overflow issue */
 html,
 body {
+  cursor: none !important;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }

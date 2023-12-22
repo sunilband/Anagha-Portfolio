@@ -6,12 +6,15 @@ import Image from "next/image";
 import AboutImage from "@/public/anagha.webp";
 import { useModeContext } from "../../context/DarkModeContext";
 import NowPlaying from "../NowPlaying/NowPlaying";
+import { useDataContext } from "@/context/DataContext";
 
 type Props = {};
 
 const AboutSection = (props: Props) => {
   const { mode } = useModeContext();
   const { restart, setRestart } = useAnimationContext();
+  const { data } = useDataContext();
+  const { aboutPage } = data;
   const [downloadRotate, setDownloadRotate] = useState(false);
   return (
     <motion.div className="flex h-screen w-screen flex-col-reverse items-start justify-center overflow-hidden md:flex-row">
@@ -38,7 +41,13 @@ const AboutSection = (props: Props) => {
             <div className="absolute left-[50%]  w-[200px] md:left-1 md:top-1">
               <NowPlaying />
             </div>
-            <Image src={AboutImage} alt="Picture of the author" priority />
+            <Image
+              src={aboutPage.image}
+              width={2000}
+              height={2000}
+              alt="Picture of the author"
+              priority
+            />
           </motion.div>
 
           <motion.h2
@@ -77,7 +86,7 @@ const AboutSection = (props: Props) => {
               type: "spring",
               stiffness: 100,
             }}
-            className="h-[3px] w-full bg-[#000000]/50 "
+            className="h-[1.5px] w-full bg-[#000000]/70 "
           />
           {/* about content */}
           <motion.p
@@ -89,19 +98,12 @@ const AboutSection = (props: Props) => {
               type: "spring",
               stiffness: 100,
             }}
-            className="fiexenFont cursor-default  bg-clip-text text-justify text-[17px] leading-snug tracking-wide lg:w-[95%] lg:text-[25px]"
+            className="fiexenFont bg-clip-text text-justify text-[17px] leading-snug tracking-wide lg:w-[95%] lg:text-[25px]"
           >
-            Hey, my name is <span className="font-semibold">Anagha</span> your
-            go-to Full Stack{" "}
-            <span className="font-semibold text-[#015496]">Flutter</span>{" "}
-            developer from India. You&apos;ll often find me immersed in the
-            soulful rhythms of classical music. Cooking up a storm in the
-            kitchen is my other forte, because who says coding and cooking
-            can&apos;t be a perfect duet? Always hungry for new tech adventures
-            and fueled by a curiosity that knows no bounds!
+            {aboutPage.details}
           </motion.p>
 
-          <motion.p
+          <motion.span
             initial={{ opacity: 0, y: -100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -129,7 +131,7 @@ const AboutSection = (props: Props) => {
               →
             </motion.span>
             Resume
-          </motion.p>
+          </motion.span>
         </div>
       </motion.div>
       <motion.div
@@ -159,8 +161,10 @@ const AboutSection = (props: Props) => {
           <NowPlaying />
         </motion.div>
         <Image
-          src={AboutImage}
+          src={aboutPage.image}
           alt="Picture of the author"
+          width={2000}
+          height={2000}
           priority
           className="rounded-bl-full"
         />

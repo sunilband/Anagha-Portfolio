@@ -4,21 +4,26 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { useAnimationContext } from "@/context/BgAnimationTrigger";
 import FloatingPhone from "./FloatingPhone/FloatingPhone";
+import { useDataContext } from "@/context/DataContext";
 
 type Props = {};
 
 const WorkSection = (props: Props) => {
   const { restart, setRestart } = useAnimationContext();
-  const [selectedProject, setSelectedProject] = useState<any>(0);
   const [rerender, setRerender] = useState<any>(false);
-  const repeat = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const { data } = useDataContext();
+  const { workPage } = data;
+  const [project, setProject] = useState<any>({
+    topPhone: "https://s13.gifyu.com/images/Sjsi1.png",
+    bottomPhone: "https://s13.gifyu.com/images/Sjsio.png",
+  });
 
   useEffect(() => {
     setRerender(false);
     setTimeout(() => {
       setRerender(true);
     }, 10);
-  }, [selectedProject]);
+  }, [project]);
 
   return (
     <motion.div className="flex h-screen flex-row flex-wrap items-center justify-evenly overflow-hidden lg:flex-row">
@@ -36,7 +41,12 @@ const WorkSection = (props: Props) => {
       >
         {" "}
         <div className="w-[200px] md:w-[270px] lg:w-[350px]">
-          {rerender && <FloatingPhone />}
+          {rerender && (
+            <FloatingPhone
+              topPhone={project.topPhone}
+              bottomPhone={project.bottomPhone}
+            />
+          )}
         </div>
       </motion.div>
 
@@ -65,32 +75,30 @@ const WorkSection = (props: Props) => {
               setRestart(!restart);
             }}
           >
-            WORK
+            <span>WORK</span>
           </motion.h2>
-          <p className="montserratFont">9</p>
+          <p className="montserratFont">{workPage.projects.length}</p>
         </div>
         {/* divider */}
         <div className="h-[2px] w-full bg-[#000000] opacity-50" />
         {/* project section */}
-        <div
-          className="hideScroll flex h-fit max-h-[80%] flex-col overflow-auto"
-          // if mapped elements dont go to 80% height, add this to the div: style={{height: 'fit-content'}}
-        >
-          {repeat.map((item, index) => {
+        <div className="hideScroll flex h-fit max-h-[80%] flex-col overflow-auto">
+          {workPage.projects.map((item, index) => {
             return (
-              <motion.div
+              <motion.a
+                href={item.github}
+                rel="noreferrer"
+                target="_blank"
                 key={index}
                 initial={{ opacity: 0, x: 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
                 onHoverStart={() =>
-                  selectedProject == 0 || selectedProject == null
-                    ? setSelectedProject(1)
-                    : setSelectedProject(0)
+                  setProject({
+                    topPhone: item.topPhoneImage,
+                    bottomPhone: item.bottomPhoneImage,
+                  })
                 }
-                onHoverEnd={() => {
-                  setSelectedProject(1);
-                }}
               >
                 <div className="group flex w-[100%] items-center justify-between px-2">
                   <motion.h3
@@ -107,30 +115,28 @@ const WorkSection = (props: Props) => {
                       x: 10,
                       transition: { duration: 0.2 },
                     }}
-                    className="montserratFont flex max-w-[50%] cursor-pointer items-center py-10 text-[0.8em] font-bold leading-tight tracking-wider"
+                    className="montserratFont flex max-w-[50%] items-center py-10 text-[0.8em] font-bold leading-tight tracking-wider"
                   >
-                    <span className="invisible group-hover:visible">→</span>
+                    <p className="invisible group-hover:visible">→</p>
 
                     {index == 0 ? (
                       <div className="relative flex items-center text-start">
-                        <span>
-                          Task Manager app made my anagha demo {index}
-                        </span>
-                        <span className="invisible absolute right-[-4rem] rounded-full bg-[#7AF8CD] p-2 text-lg lg:visible">
+                        <p>{item.name}</p>
+                        <p className="invisible absolute right-[-4rem] rounded-full bg-[#7AF8CD] p-2 text-lg lg:visible">
                           new
-                        </span>
+                        </p>
                       </div>
                     ) : (
-                      `Task Manager App ${index}`
+                      `${item.name}`
                     )}
                   </motion.h3>
                   <div className="flex gap-20">
-                    <p className="montserratFont text-[0.7em]">Mobile App</p>
-                    <p className="montserratFont text-[0.7em]">2021</p>
+                    <p className="montserratFont text-[0.7em]">{item.type}</p>
+                    <p className="montserratFont text-[0.7em]">{item.year}</p>
                   </div>
                 </div>
                 <div className="h-[0.5px] w-full bg-[#000000] opacity-20" />
-              </motion.div>
+              </motion.a>
             );
           })}
         </div>
