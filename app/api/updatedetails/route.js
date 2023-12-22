@@ -57,6 +57,8 @@ export async function PUT(req, res) {
       },
     );
 
+    if (!updatedUser) throw new Error("User not found !");
+
     return new NextResponse(
       JSON.stringify({
         success: true,

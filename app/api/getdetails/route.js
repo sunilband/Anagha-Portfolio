@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { UserModel } from "@/utils/backend/userModel";
 import { connectDB } from "@/utils/backend/mongoDB";
 
+export const revalidate = 0; // this is the new line added
+
 export async function GET(req, res) {
   try {
     await connectDB();
