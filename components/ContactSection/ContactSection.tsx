@@ -156,7 +156,7 @@ const ContactSection = (props: Props) => {
             duration: 0.5,
           },
         }}
-        className="mt-[-100px] scale-75 rounded-[60px] drop-shadow-2xl md:mt-0"
+        className="relative mt-[-100px] scale-75 rounded-[60px] drop-shadow-2xl md:mt-0"
         // make shadow
         style={{
           boxShadow: "0px 0px 100px rgba(0, 0, 0, 0.25)",

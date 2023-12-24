@@ -7,6 +7,8 @@ import { DataProvider } from "../context/DataContext";
 import { AnimationProvider } from "../context/BgAnimationTrigger";
 import PageAnimatePresence from "../components/PageAnimations/PageAnimatePresence";
 import Cursor from "@/components/Cursor/Cursor";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const metadata: Metadata = {
   title: "Anagha Yawale",
@@ -28,6 +30,7 @@ export default function RootLayout({
               <CursorWrapper />
               <PageAnimatePresence>
                 {children}
+                <ToastContainer />
                 <Cursor />
               </PageAnimatePresence>
             </AnimationProvider>

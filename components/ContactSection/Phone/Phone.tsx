@@ -1,13 +1,36 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { sendEmail } from "../../../utils/apiCalls/sendEmail";
 import { DeviceFrameset } from "react-device-frameset";
 import "react-device-frameset/styles/marvel-devices.min.css";
 import "./Phone.css";
 import { motion } from "framer-motion";
+import { toast } from "react-toastify";
 
 type Props = {};
 
 const Phone = (props: Props) => {
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
+  const handleSendEmail = async (e: any) => {
+    e.preventDefault();
+    if (name && email && message) {
+      try {
+        const res = await sendEmail({ name, email, message });
+        if (res) {
+          setName("");
+          setEmail("");
+          setMessage("");
+          toast.success("Email sent successfully !");
+        } else {
+          toast.error("Please fill all fields.");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
   return (
     <DeviceFrameset device="iPhone X">
       {/* create a form */}
@@ -24,23 +47,40 @@ const Phone = (props: Props) => {
                 Like what you see ?<small>Let talk</small>
               </h2>
             </div>
-            <form className="card-form">
+            <div className="card-form">
               <div className="input">
-                <input type="text" className="input-field" />
+                <input
+                  type="text"
+                  className="input-field"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
                 <label className="input-label">Full Name</label>
               </div>
               <div className="input">
-                <input type="text" className="input-field" />
+                <input
+                  type="text"
+                  className="input-field"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
                 <label className="input-label">Email</label>
               </div>
               <div className="input">
-                <input type="text" className="input-field" />
+                <input
+                  type="text"
+                  className="input-field"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                />
                 <label className="input-label">Message</label>
               </div>
               <div className="action">
-                <button className="action-button">Send</button>
+                <button className="action-button" onClick={handleSendEmail}>
+                  Send
+                </button>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </motion.div>
