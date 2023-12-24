@@ -6,7 +6,7 @@ import { ModeProvider } from "../context/DarkModeContext";
 import { DataProvider } from "../context/DataContext";
 import { AnimationProvider } from "../context/BgAnimationTrigger";
 import PageAnimatePresence from "../components/PageAnimations/PageAnimatePresence";
-import AnimatedCursor from "react-animated-cursor";
+import Cursor from "@/components/Cursor/Cursor";
 
 export const metadata: Metadata = {
   title: "Anagha Yawale",
@@ -28,22 +28,7 @@ export default function RootLayout({
               <CursorWrapper />
               <PageAnimatePresence>
                 {children}
-                <AnimatedCursor
-                  trailingSpeed={10}
-                  innerSize={25}
-                  outerSize={35}
-                  innerScale={2}
-                  outerScale={2}
-                  outerAlpha={0}
-                  outerStyle={{
-                    border: "3px solid #000",
-                  }}
-                  innerStyle={{
-                    backgroundColor: "#fff",
-                    mixBlendMode: "exclusion",
-                  }}
-                  clickables={["a", "button", ".link", "span", "hoversection"]}
-                />
+                <Cursor />
               </PageAnimatePresence>
             </AnimationProvider>
           </ModeProvider>

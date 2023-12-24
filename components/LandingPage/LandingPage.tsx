@@ -12,7 +12,7 @@ type Props = {};
 
 const LandingPage = (props: Props) => {
   const { setRestart } = useAnimationContext();
-  const { mode } = useModeContext();
+  const { mode, setMode } = useModeContext();
   const { data } = useDataContext();
   const { homePage, rendered } = data;
   const NameText = homePage.name;
@@ -37,7 +37,13 @@ const LandingPage = (props: Props) => {
           }}
           className="mb-[-30px] flex  flex-wrap items-center justify-center gap-8 leading-none"
         >
-          <p className="montserratFont text-[1.5em] sm:text-[2em]">HEY, I’M</p>{" "}
+          <p
+            className={`montserratFont text-[1.5em] sm:text-[2em] ${
+              mode.darkMode ? "text-black/80" : ""
+            }`}
+          >
+            HEY, I’M
+          </p>{" "}
           <motion.span
             initial={{ opacity: 0, y: -50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -47,9 +53,7 @@ const LandingPage = (props: Props) => {
               type: "spring",
               stiffness: 100,
             }}
-            className={`barlowFont text-[3em] tracking-wide ${
-              mode.darkMode ? "text-black" : "text-black"
-            } shadowText mb-6 mt-[-20px] font-semibold leading-none sm:mb-0 sm:mt-[1.2rem] `}
+            className={`barlowFont shadowText mb-6 mt-[-20px] text-[3em] font-semibold leading-none tracking-wide sm:mb-0 sm:mt-[1.2rem] `}
             onMouseEnter={() => setRestart(true)}
             onMouseLeave={() => setRestart(false)}
           >
@@ -69,7 +73,12 @@ const LandingPage = (props: Props) => {
                   {letter}
                 </motion.span>
               ))}
-              <div className="paint-stroke stroke-2"></div>
+              {/* paint stroke */}
+              <div
+                className={`paint-stroke stroke-2 ${
+                  mode.darkMode ? "hidden" : "visible"
+                }`}
+              ></div>
             </div>
             {/* ---------------Name End---------------- */}
           </motion.span>
@@ -80,7 +89,11 @@ const LandingPage = (props: Props) => {
           transition={{ duration: 0.3, delay: 0.2 }}
           className="mt-10 flex  flex-wrap items-center justify-center gap-8 leading-none sm:mt-0"
         >
-          <p className="montserratFont text-[1.5em] sm:text-[2em] ">
+          <p
+            className={`montserratFont text-[1.5em] sm:text-[2em] ${
+              mode.darkMode ? "text-black/80" : ""
+            }`}
+          >
             BUT YOU CAN CALL ME
           </p>{" "}
           <span
@@ -110,7 +123,10 @@ const LandingPage = (props: Props) => {
             className="hover-underline-animation"
           >
             {" "}
-            <Link href="/projects"> → See my projects</Link>
+            <Link href="/projects" prefetch={true}>
+              {" "}
+              → See my projects
+            </Link>
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: -50 }}
@@ -118,7 +134,10 @@ const LandingPage = (props: Props) => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="hover-underline-animation "
           >
-            <Link href="/about"> → More about me</Link>
+            <Link href="/about" prefetch={true}>
+              {" "}
+              → More about me
+            </Link>
           </motion.p>
         </div>
       </div>

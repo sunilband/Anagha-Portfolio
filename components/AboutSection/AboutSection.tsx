@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useAnimationContext } from "@/context/BgAnimationTrigger";
 import Image from "next/image";
-import AboutImage from "@/public/anagha.webp";
 import { useModeContext } from "../../context/DarkModeContext";
 import NowPlaying from "../NowPlaying/NowPlaying";
 import { useDataContext } from "@/context/DataContext";
@@ -27,7 +26,7 @@ const AboutSection = (props: Props) => {
         className="flex w-full justify-center gap-4 lg:justify-end"
       >
         {/* about data */}
-        <div className="mr-2 flex h-screen w-[90%] flex-col justify-center gap-4">
+        <div className="z-50 mr-2 flex h-screen w-[90%] flex-col justify-center gap-4">
           <motion.div
             initial={{ opacity: 0, y: -100 }}
             animate={{ opacity: 1, y: 0 }}
@@ -98,7 +97,9 @@ const AboutSection = (props: Props) => {
               type: "spring",
               stiffness: 100,
             }}
-            className="fiexenFont bg-clip-text text-justify text-[17px] leading-snug tracking-wide lg:w-[95%] lg:text-[25px]"
+            className={`fiexenFont bg-clip-text text-justify text-[17px] leading-snug tracking-wide lg:w-[95%] lg:text-[25px] ${
+              mode.darkMode ? "text-black/80" : ""
+            }`}
           >
             {aboutPage.details}
           </motion.p>
@@ -118,7 +119,9 @@ const AboutSection = (props: Props) => {
             onHoverEnd={() => {
               setDownloadRotate(false);
             }}
-            className="fiexenFont flex w-fit gap-2 font-bold"
+            className={`fiexenFont flex w-fit gap-2 font-bold ${
+              mode.darkMode ? "text-black/80" : ""
+            }`}
           >
             {/* down arrow symbol */}
             <motion.span
@@ -126,7 +129,7 @@ const AboutSection = (props: Props) => {
                 rotate: downloadRotate ? 90 : 0,
                 transition: { duration: 0.2 },
               }}
-              className="rotate-90"
+              className={`rotate-90`}
             >
               →
             </motion.span>

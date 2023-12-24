@@ -80,6 +80,7 @@ const Hamburger = ({ navVisible, setNavVisible }: Props) => {
                     href="/"
                     className="fiexenFont text-black"
                     onClick={() => setNavVisible(false)}
+                    prefetch={true}
                   >
                     <span className="montserratFont mr-2 text-[0.3em] text-black">
                       01
@@ -106,6 +107,7 @@ const Hamburger = ({ navVisible, setNavVisible }: Props) => {
                     href="/projects"
                     className="fiexenFont text-black"
                     onClick={() => setNavVisible(false)}
+                    prefetch={true}
                   >
                     <span className="montserratFont mr-2 text-[0.3em] text-black">
                       02
@@ -132,6 +134,7 @@ const Hamburger = ({ navVisible, setNavVisible }: Props) => {
                     href="/about"
                     className="fiexenFont text-black"
                     onClick={() => setNavVisible(false)}
+                    prefetch={true}
                   >
                     <span className="montserratFont mr-2 text-[0.3em] text-black">
                       03
@@ -158,6 +161,7 @@ const Hamburger = ({ navVisible, setNavVisible }: Props) => {
                     href="/contact"
                     className="fiexenFont text-black"
                     onClick={() => setNavVisible(false)}
+                    prefetch={true}
                   >
                     <span className="montserratFont mr-2 text-[0.3em] text-black">
                       04

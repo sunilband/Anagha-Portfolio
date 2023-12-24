@@ -141,10 +141,12 @@ const Background = (props: Props) => {
   const [hue, setHue] = useState(60);
   // 73
   const { mode, setMode } = useModeContext();
+  const { restart, setRestart } = useAnimationContext();
 
   useEffect(() => {
     if (mode.darkMode) setHue(random(0, 360));
-  }, [mode]);
+    if (restart) setHue(random(0, 360));
+  }, [mode, restart]);
 
   console.log(hue);
 

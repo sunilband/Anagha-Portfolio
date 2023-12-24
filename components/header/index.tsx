@@ -9,6 +9,7 @@ import Image from "next/image";
 import Logo from "../../public/logo.svg";
 import { motion } from "framer-motion";
 import { useDataContext } from "../../context/DataContext";
+import Link from "next/link";
 
 const Header = forwardRef(function Index(props, ref) {
   const { mode, setMode } = useModeContext();
@@ -25,15 +26,17 @@ const Header = forwardRef(function Index(props, ref) {
           x: 0,
           transition: { duration: 0.5, type: "spring", stiffness: 100 },
         }}
-        className="absolute left-4 top-[40px] z-auto"
+        className="absolute left-4 top-[40px] z-50"
       >
-        <Image
-          src={Logo}
-          width={100}
-          height={100}
-          alt="logo"
-          className="z-50"
-        />
+        <Link href="/" prefetch={true}>
+          <Image
+            src={Logo}
+            width={100}
+            height={100}
+            alt="logo"
+            className="z-[1000]"
+          />
+        </Link>
       </motion.div>
 
       <motion.div

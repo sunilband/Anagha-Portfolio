@@ -5,10 +5,12 @@ import { useState } from "react";
 import { useAnimationContext } from "@/context/BgAnimationTrigger";
 import FloatingPhone from "./FloatingPhone/FloatingPhone";
 import { useDataContext } from "@/context/DataContext";
+import { useModeContext } from "@/context/DarkModeContext";
 
 type Props = {};
 
 const WorkSection = (props: Props) => {
+  const { mode } = useModeContext();
   const { restart, setRestart } = useAnimationContext();
   const [rerender, setRerender] = useState<any>(false);
   const { data } = useDataContext();
@@ -85,10 +87,7 @@ const WorkSection = (props: Props) => {
         <div className="hideScroll flex h-fit max-h-[80%] flex-col overflow-auto">
           {workPage.projects.map((item, index) => {
             return (
-              <motion.a
-                href={item.github}
-                rel="noreferrer"
-                target="_blank"
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, x: 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -101,7 +100,10 @@ const WorkSection = (props: Props) => {
                 }
               >
                 <div className="group flex w-[100%] items-center justify-between px-2">
-                  <motion.h3
+                  <motion.a
+                    href={item.github}
+                    rel="noreferrer"
+                    target="_blank"
                     initial={{ opacity: 0 }}
                     animate={{
                       opacity: 1,
@@ -120,23 +122,33 @@ const WorkSection = (props: Props) => {
                     <p className="invisible group-hover:visible">→</p>
 
                     {index == 0 ? (
-                      <div className="relative flex items-center text-start">
+                      <div
+                        className={`relative flex items-center text-start ${
+                          mode.darkMode ? "text-black/80" : ""
+                        }`}
+                      >
                         <p>{item.name}</p>
-                        <p className="invisible absolute right-[-4rem] rounded-full bg-[#7AF8CD] p-2 text-lg lg:visible">
+                        <p
+                          className={`invisible absolute right-[-4rem] rounded-full bg-[#7AF8CD] p-2 text-lg lg:visible`}
+                        >
                           new
                         </p>
                       </div>
                     ) : (
-                      `${item.name}`
+                      <span
+                        className={`${mode.darkMode ? "text-black/80" : ""}`}
+                      >
+                        {item.name}
+                      </span>
                     )}
-                  </motion.h3>
-                  <div className="flex gap-20">
+                  </motion.a>
+                  <div className="flex items-center gap-20">
                     <p className="montserratFont text-[0.7em]">{item.type}</p>
                     <p className="montserratFont text-[0.7em]">{item.year}</p>
                   </div>
                 </div>
                 <div className="h-[0.5px] w-full bg-[#000000] opacity-20" />
-              </motion.a>
+              </motion.div>
             );
           })}
         </div>
