@@ -38,11 +38,11 @@ const Phone = (props: Props) => {
         initial={{ opacity: 0, y: -100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 1.5 }}
-        className="barlowFont h-full w-full bg-slate-100 px-3 pt-20"
+        className="barlowFont h-full w-full bg-slate-100 px-3 pt-20 "
       >
         <div className="container">
           <div className="">
-            <div className="card-image">
+            <div className="card-image hidden md:block">
               <h2 className="card-heading">
                 Like what you see ?<small>Let talk</small>
               </h2>
