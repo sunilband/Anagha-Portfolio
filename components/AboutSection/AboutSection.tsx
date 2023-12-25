@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useModeContext } from "../../context/DarkModeContext";
 import NowPlaying from "../NowPlaying/NowPlaying";
 import { useDataContext } from "@/context/DataContext";
+import FileSaver from "file-saver";
 
 type Props = {};
 
@@ -15,6 +16,12 @@ const AboutSection = (props: Props) => {
   const { data } = useDataContext();
   const { aboutPage } = data;
   const [downloadRotate, setDownloadRotate] = useState(false);
+
+  const handleDownloadPDF = () => {
+    console.log("download");
+    const fileURL = `./files/resume.pdf`;
+    FileSaver.saveAs(fileURL, "Anagha_Yawale_resume.pdf");
+  };
   return (
     <motion.div className="flex h-screen w-screen flex-col-reverse items-start justify-center overflow-hidden md:flex-row">
       <motion.div
@@ -119,9 +126,10 @@ const AboutSection = (props: Props) => {
             onHoverEnd={() => {
               setDownloadRotate(false);
             }}
-            className={`fiexenFont flex w-fit gap-2 font-bold ${
+            className={`fiexenFont flex w-fit gap-2 font-bold  ${
               mode.darkMode ? "text-black/80" : ""
             }`}
+            onClick={handleDownloadPDF}
           >
             {/* down arrow symbol */}
             <motion.span
@@ -133,7 +141,7 @@ const AboutSection = (props: Props) => {
             >
               →
             </motion.span>
-            Resume
+            <span className="hover-underline-dark">Resume</span>
           </motion.span>
         </div>
       </motion.div>
