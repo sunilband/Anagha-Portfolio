@@ -4,8 +4,14 @@ import { connectDB } from "@/utils/backend/mongoDB";
 
 export async function PUT(req, res) {
   try {
-    const { secretPassword, homePage, aboutPage, workPage, other } =
-      await req.json();
+    const {
+      secretPassword,
+      homePage,
+      aboutPage,
+      workPage,
+      contactPage,
+      other,
+    } = await req.json();
     const envPassword = process.env.NEXT_PUBLIC_UPDATE_SECRET_KEY;
     if (secretPassword !== envPassword) {
       return new NextResponse(
@@ -29,6 +35,7 @@ export async function PUT(req, res) {
         homePage,
         aboutPage,
         workPage,
+        contactPage,
         other,
       });
       return new NextResponse(
@@ -50,6 +57,7 @@ export async function PUT(req, res) {
         homePage,
         aboutPage,
         workPage,
+        contactPage,
         other,
       },
       {
