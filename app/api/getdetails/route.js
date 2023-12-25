@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { UserModel } from "@/utils/backend/userModel";
 import { connectDB } from "@/utils/backend/mongoDB";
 
-export const revalidate = 0; // Revalidate Seconds , 600 = 10 mins
+export const revalidate = 600; // Revalidate Seconds , 600 = 10 mins
 
 export async function GET(req, res) {
   try {
