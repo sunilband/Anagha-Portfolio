@@ -4,10 +4,13 @@ import Phone from "./Phone/Phone";
 import { motion } from "framer-motion";
 import { useAnimationContext } from "../../context/BgAnimationTrigger";
 import { useModeContext } from "../../context/DarkModeContext";
+import { useDataContext } from "../../context/DataContext";
 
 type Props = {};
 
 const ContactSection = (props: Props) => {
+  const { data } = useDataContext();
+  const { contactPage } = data;
   const { mode } = useModeContext();
   const { restart, setRestart } = useAnimationContext();
   return (
@@ -77,7 +80,7 @@ const ContactSection = (props: Props) => {
             >
               Mail:
             </p>
-            <p>anaghayawale@gmaail.com</p>
+            <p>{contactPage.email}</p>
           </div>
           <div className="mt-10 flex gap-4 lg:text-[1.3em]">
             <p
@@ -88,55 +91,41 @@ const ContactSection = (props: Props) => {
               Socials:
             </p>
 
-            <motion.span
-              initial={{ opacity: 0, y: -100 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.3,
-                delay: 0.1,
-                type: "spring",
-                stiffness: 100,
-              }}
-              className="hover-underline-dark flex w-fit gap-4"
-            >
-              {/* down arrow symbol */}
-              <motion.span
-                initial={{ rotate: -45 }}
-                whileHover={{
-                  rotate: 0,
-                  transition: { duration: 0.2 },
-                }}
-                className="mr-2"
-              >
-                →
-              </motion.span>
-              GitHub
-            </motion.span>
-
-            <motion.span
-              initial={{ opacity: 0, y: -100 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.3,
-                delay: 0.1,
-                type: "spring",
-                stiffness: 100,
-              }}
-              className="hover-underline-dark flex w-fit gap-2"
-            >
-              {/* down arrow symbol */}
-              <motion.span
-                initial={{ rotate: -45 }}
-                whileHover={{
-                  rotate: 0,
-                  transition: { duration: 0.2 },
-                }}
-                className="mr-2"
-              >
-                →
-              </motion.span>
-              Instagram
-            </motion.span>
+            {contactPage.socials.map((item: any, index: any) => {
+              return (
+                <a
+                  href={item.link}
+                  rel="noreferrer"
+                  target="_blank"
+                  key={index}
+                >
+                  <motion.span
+                    initial={{ opacity: 0, y: -100 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.3,
+                      delay: 0.1,
+                      type: "spring",
+                      stiffness: 100,
+                    }}
+                    className="hover-underline-dark flex w-fit gap-4"
+                  >
+                    {/* down arrow symbol */}
+                    <motion.span
+                      initial={{ rotate: -45 }}
+                      whileHover={{
+                        rotate: 0,
+                        transition: { duration: 0.2 },
+                      }}
+                      className="mr-2"
+                    >
+                      →
+                    </motion.span>
+                    {item.name}
+                  </motion.span>
+                </a>
+              );
+            })}
           </div>
         </motion.div>
       </motion.div>

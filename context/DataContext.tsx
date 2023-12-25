@@ -24,6 +24,17 @@ interface AboutPage {
   resumeLink: string;
 }
 
+interface socials {
+  name: string;
+  link: string;
+}
+
+interface contactPage {
+  socials: socials[];
+  email: string;
+  phone: string;
+}
+
 interface Other {
   logoLink: string;
 }
@@ -37,6 +48,7 @@ interface portfolioData {
     rendered: boolean;
     homePage: HomePage;
     aboutPage: AboutPage;
+    contactPage: contactPage;
     other: Other;
     workPage: WorkPage;
   };
@@ -56,11 +68,16 @@ const DataContext = createContext<portfolioData>({
       image: "",
       resumeLink: "",
     },
-    other: {
-      logoLink: "",
-    },
     workPage: {
       projects: [],
+    },
+    contactPage: {
+      socials: [],
+      email: "",
+      phone: "",
+    },
+    other: {
+      logoLink: "",
     },
   },
   setData: () => {},
@@ -79,6 +96,11 @@ export const DataProvider = ({ children }: any) => {
         details: "",
         image: "",
         resumeLink: "",
+      },
+      contactPage: {
+        socials: [],
+        email: "",
+        phone: "",
       },
       other: {
         logoLink: "",
