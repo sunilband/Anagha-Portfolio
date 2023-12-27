@@ -33,7 +33,7 @@ const AboutSection = (props: Props) => {
         className="flex w-full justify-center gap-4 lg:justify-end"
       >
         {/* about data */}
-        <div className="z-50 mr-2 flex h-screen w-[90%] flex-col justify-center gap-4">
+        <div className="mr-2 flex h-screen w-[90%] flex-col justify-center gap-4">
           <motion.div
             initial={{ opacity: 0, y: -100 }}
             animate={{ opacity: 1, y: 0 }}
