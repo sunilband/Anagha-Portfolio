@@ -44,7 +44,7 @@ const Phone = (props: Props) => {
           <div className="">
             <div className="card-image hidden md:block">
               <h2 className="card-heading">
-                Like what you see ?<small>Let talk</small>
+                Like what you see ?<small>Let&apos;s talk</small>
               </h2>
             </div>
             <div className="card-form">
@@ -54,6 +54,7 @@ const Phone = (props: Props) => {
                   className="input-field"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  autoFocus
                 />
                 <label className="input-label">Full Name</label>
               </div>
