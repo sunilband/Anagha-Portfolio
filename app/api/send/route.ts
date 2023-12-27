@@ -1,6 +1,7 @@
 import { Resend } from "resend";
-import { templete } from "./templete";
 import { NextRequest, NextResponse } from "next/server";
+import Reciever from "@/components/EmailTempletes/Reciever/Reciever";
+import Sender from "@/components/EmailTempletes/Sender/Sender";
 const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 
 export async function POST(req: NextRequest, res: NextResponse) {
@@ -11,13 +12,13 @@ export async function POST(req: NextRequest, res: NextResponse) {
         from: "Anagha Yawale <anagha@anagha.tech>",
         to: email,
         subject: "Contact Form Submission",
-        html: templete(name, email),
+        react: Reciever({ name }),
       },
       {
         from: `${name} <anagha@anagha.tech>`,
         to: "anaghayawale7@gmail.com",
         subject: "Contact Form Submission",
-        text: `You got a message from ${name} (${email})\n\n${message}`,
+        react: Sender({ name, email, message }),
       },
     ]);
 
