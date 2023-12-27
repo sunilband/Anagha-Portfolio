@@ -7,7 +7,7 @@ const Cursor = (props: Props) => {
   return (
     <div className="hidden sm:block">
       <AnimatedCursor
-        trailingSpeed={10}
+        trailingSpeed={8}
         innerSize={25}
         outerSize={35}
         innerScale={2}
