@@ -119,6 +119,7 @@ input {
   border-radius: 6px;
   color: #fff;
   border: 0;
+  position: relative;
 }
 .action-button:focus {
   outline: 0;

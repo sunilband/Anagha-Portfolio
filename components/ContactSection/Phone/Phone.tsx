@@ -7,14 +7,18 @@ import "./Phone.css";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
 
-type Props = {};
+type Props = {
+  sent: boolean;
+  setSent: (value: boolean) => void;
+};
 
-const Phone = (props: Props) => {
+const Phone = ({ sent, setSent }: Props) => {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
   const handleSendEmail = async (e: any) => {
     e.preventDefault();
+
     if (name && email && message) {
       try {
         const res = await sendEmail({ name, email, message });
@@ -22,7 +26,17 @@ const Phone = (props: Props) => {
           setName("");
           setEmail("");
           setMessage("");
-          toast.success("Email sent successfully !");
+          toast.success("Email sent successfully.", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            progress: undefined,
+            draggable: true,
+            theme: "colored",
+            className: "text-2xl font-bold",
+          });
+          setSent(true);
         } else {
           toast.error("Please fill all fields.");
         }
@@ -31,6 +45,7 @@ const Phone = (props: Props) => {
       }
     }
   };
+
   return (
     <DeviceFrameset device="iPhone X">
       {/* create a form */}
@@ -76,9 +91,13 @@ const Phone = (props: Props) => {
                 />
                 <label className="input-label">Message</label>
               </div>
-              <div className="action">
-                <button className="action-button" onClick={handleSendEmail}>
-                  Send
+              <div className="action relative">
+                <button
+                  className={`action-button disabled:cursor-not-allowed disabled:opacity-50`}
+                  disabled={sent}
+                  onClick={handleSendEmail}
+                >
+                  {sent ? "Email Sent" : "Send"}
                 </button>
               </div>
             </div>
