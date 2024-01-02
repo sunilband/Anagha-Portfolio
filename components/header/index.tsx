@@ -1,6 +1,6 @@
 // @ts-nocheck
 "use client";
-import { forwardRef, useState } from "react";
+import { forwardRef, useState, useRef } from "react";
 import styles from "./style.module.scss";
 import "./Index.css";
 import { useModeContext } from "../../context/DarkModeContext";
@@ -12,6 +12,7 @@ import { useDataContext } from "../../context/DataContext";
 import Link from "next/link";
 
 const Header = forwardRef(function Index(props, ref) {
+  const audioRef = useRef(null);
   const { mode, setMode } = useModeContext();
   const [navVisible, setNavVisible] = useState(false);
   const { data } = useDataContext();
@@ -55,8 +56,10 @@ const Header = forwardRef(function Index(props, ref) {
               className="checkbox"
               onChange={() => {
                 setMode({ darkMode: !mode.darkMode });
+                audioRef.current.play();
               }}
             />
+            <audio ref={audioRef} src="/switch.mp3" />
             <div className="slider"></div>
           </label>
         </div>
