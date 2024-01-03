@@ -1,5 +1,4 @@
 "use client";
-import { set } from "mongoose";
 import { createContext, useState, useEffect, useContext } from "react";
 
 interface Project {
@@ -69,7 +68,18 @@ const DataContext = createContext<portfolioData>({
       resumeLink: "",
     },
     workPage: {
-      projects: [],
+      projects: [
+        {
+          name: "",
+          details: "",
+          type: "",
+          year: "",
+          bottomPhoneImage: "",
+          topPhoneImage: "",
+          link: "",
+          github: "",
+        },
+      ],
     },
     contactPage: {
       socials: [],
@@ -106,7 +116,18 @@ export const DataProvider = ({ children }: any) => {
         logoLink: "",
       },
       workPage: {
-        projects: [],
+        projects: [
+          {
+            name: "",
+            details: "",
+            type: "",
+            year: "",
+            bottomPhoneImage: "",
+            topPhoneImage: "",
+            link: "",
+            github: "",
+          },
+        ],
       },
     },
     setData: () => {},

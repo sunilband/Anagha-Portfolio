@@ -16,8 +16,12 @@ const WorkSection = (props: Props) => {
   const { data } = useDataContext();
   const { workPage } = data;
   const [project, setProject] = useState<any>({
-    topPhone: "https://s13.gifyu.com/images/Sjsi1.png",
-    bottomPhone: "https://s13.gifyu.com/images/Sjsio.png",
+    topPhone:
+      workPage.projects[0].topPhoneImage ||
+      "https://s13.gifyu.com/images/Sjsi1.png",
+    bottomPhone:
+      workPage.projects[0].bottomPhoneImage ||
+      "https://s13.gifyu.com/images/Sjsio.png",
   });
 
   useEffect(() => {
