@@ -6,7 +6,6 @@ import { useModeContext } from "../../context/DarkModeContext";
 import { useAnimationContext } from "@/context/BgAnimationTrigger";
 import Link from "next/link";
 import { useDataContext } from "@/context/DataContext";
-import LoadingPage from "../LoadingPage/LoadingPage";
 
 type Props = {};
 
