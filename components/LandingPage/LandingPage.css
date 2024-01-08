@@ -13,7 +13,7 @@
 }
 
 .paint-stroke {
-  background: url("../../public//stroke.png") no-repeat center center;
+  background: url("../../public//stroke.webp") no-repeat center center;
   mix-blend-mode: saturation;
   height: 60%;
   position: absolute;
